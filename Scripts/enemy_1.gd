@@ -1,8 +1,16 @@
 extends CharacterBody2D
 class_name Enemy
+@onready var marker_center: Marker2D = $MarkerCenter
+@onready var marker_right: Marker2D = $MarkerRight
+@onready var marker_left: Marker2D = $MarkerLeft
 
 var target: Player = null
 
+
+@export var bullet_scene : PackedScene = preload("res://Scenes/red_enemy_bullet.tscn")
+@export var shoot_cooldown := 2.0
+
+var can_shoot = true
 
 @export var turn_speed = 5
 @export var max_speed = 350
@@ -46,8 +54,38 @@ func _physics_process(delta: float) -> void:
 		if angle_diff < deg_to_rad(20):
 			var direction = Vector2.UP.rotated(rotation)
 			velocity += direction * thrust * delta
-
+			shoot()
 	velocity *= friction
 	if velocity.length() > max_speed:
 		velocity = velocity.normalized() * max_speed
 	move_and_slide()
+	
+func shoot() -> void:
+	if !can_shoot:
+		return
+	
+	#Center Bullet
+	var bullet_center = bullet_scene.instantiate()
+	bullet_center.global_position = marker_center.global_position
+	bullet_center.direction = Vector2.UP.rotated(rotation)
+	
+	#Right Bullet
+	var bullet_right = bullet_scene.instantiate()
+	bullet_right.global_position = marker_right.global_position
+	bullet_right.direction = Vector2.UP.rotated(rotation + deg_to_rad(10))
+	
+	
+	#Left Bullet
+	var bullet_left = bullet_scene.instantiate()
+	bullet_left.global_position = marker_left.global_position
+	bullet_left.direction = Vector2.UP.rotated(rotation - deg_to_rad(10))
+	
+	
+	get_tree().current_scene.add_child(bullet_center)
+	get_tree().current_scene.add_child(bullet_right)
+	get_tree().current_scene.add_child(bullet_left)
+	
+	can_shoot = false
+	await get_tree().create_timer(shoot_cooldown).timeout
+	can_shoot = true
+	

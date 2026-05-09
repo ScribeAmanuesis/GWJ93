@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b54g0vgo5f5dh"]
+
+[ext_resource type="Texture2D" uid="uid://6doqh7b10ivf" path="res://icon.svg" id="1_eunmp"]
+[ext_resource type="Script" uid="uid://c5i8htey358n2" path="res://Scripts/red_enemy_bullet.gd" id="1_xtkkh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eunmp"]
+radius = 14.0
+
+[node name="Area2D" type="Area2D" unique_id=345900156]
+script = ExtResource("1_xtkkh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1149401367]
+position = Vector2(-1.1920929e-07, 0)
+scale = Vector2(0.23437499, 0.21875)
+texture = ExtResource("1_eunmp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=990869971]
+shape = SubResource("CircleShape2D_eunmp")

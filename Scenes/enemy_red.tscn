@@ -20,3 +20,12 @@ shape = SubResource("CapsuleShape2D_ld55o")
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=562057009]
 target_position = Vector2(0, -400)
 script = ExtResource("3_4qy08")
+
+[node name="MarkerCenter" type="Marker2D" parent="." unique_id=122014221]
+position = Vector2(0, -84)
+
+[node name="MarkerRight" type="Marker2D" parent="." unique_id=1506120234]
+position = Vector2(46, -60)
+
+[node name="MarkerLeft" type="Marker2D" parent="." unique_id=557701192]
+position = Vector2(-48, -59)

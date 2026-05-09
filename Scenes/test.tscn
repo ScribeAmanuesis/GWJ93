@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://df8g8wx2sbp58" path="res://Scenes/player.tscn" id="1_lc1oi"]
 [ext_resource type="PackedScene" uid="uid://it307ruobgy5" path="res://Scenes/asteroid.tscn" id="2_8od7v"]
-[ext_resource type="PackedScene" uid="uid://cfhjbtgyypfsf" path="res://Scenes/enemy1.tscn" id="2_qc4db"]
+[ext_resource type="PackedScene" uid="uid://cfhjbtgyypfsf" path="res://Scenes/enemy_red.tscn" id="2_qc4db"]
 [ext_resource type="Script" uid="uid://cxk8souejlbob" path="res://Scripts/camera_2d.gd" id="4_ys1qc"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ys1qc"]
