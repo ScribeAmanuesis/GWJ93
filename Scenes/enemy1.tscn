@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cfhjbtgyypfsf"]
+
+[ext_resource type="Texture2D" uid="uid://b5j7c0k0cj3go" path="res://Sprites/Unsorted/ship_red_1.png" id="1_ld55o"]
+[ext_resource type="Script" uid="uid://d0fqo52mx4x6n" path="res://Scripts/enemy_1.gd" id="1_mxdow"]
+[ext_resource type="Script" uid="uid://cujlolipr5cx4" path="res://Scripts/ray_cast_2d.gd" id="3_4qy08"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ld55o"]
+radius = 59.0
+height = 156.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=638474384]
+script = ExtResource("1_mxdow")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=687753967]
+texture = ExtResource("1_ld55o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322904650]
+shape = SubResource("CapsuleShape2D_ld55o")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=562057009]
+target_position = Vector2(0, -400)
+script = ExtResource("3_4qy08")
