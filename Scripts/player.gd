@@ -4,6 +4,8 @@ enum MovementMode {
 	WASD,
 	ASTEROIDS
 }
+var engine_sfx : AudioStream = preload("res://Sfx/engine.mp3")
+@onready var engine_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @export var movement_mode: MovementMode = MovementMode.WASD
 
@@ -44,9 +46,13 @@ func move_asteroids(delta: float) -> void:
 	rotation += turn_input * turn_speed * delta
 
 	if Input.is_action_pressed("ui_up"):
+		if !engine_player.playing:
+			engine_player.stream = engine_sfx
+			engine_player.play()
 		var direction := Vector2.UP.rotated(rotation)
 		velocity += direction * thrust * delta
-
+	else:
+		engine_player.stop()
 	velocity *= friction
 
 	if velocity.length() > max_speed:
