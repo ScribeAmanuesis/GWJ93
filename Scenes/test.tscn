@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dqg8oetkqnc2p"]
+
+[ext_resource type="PackedScene" uid="uid://df8g8wx2sbp58" path="res://Scenes/player.tscn" id="1_lc1oi"]
+
+[node name="Node2D" type="Node2D" unique_id=426518294]
+
+[node name="CharacterBody2D" parent="." unique_id=71516756 instance=ExtResource("1_lc1oi")]
+movement_mode = 1
