@@ -5,6 +5,11 @@ extends CharacterBody2D
 @onready var marker_left: Marker2D = $MarkerLeft
 
 var target: Player = null
+@export var collision_damage := 10.0
+@export var knockback_force := 500.0
+@export var knockback_time := 0.2
+#NOTE: I think the knockback was too weak because of the speed limit, so I added this flag
+var is_knocked_back := false
 
 @export var bullet_scene: PackedScene = preload("res://Scenes/red_enemy_bullet.tscn")
 @export var shoot_cooldown := 2.0
@@ -65,7 +70,7 @@ func _physics_process(delta: float) -> void:
 
 	var does_see_player := target != null
 
-	if does_see_player:
+	if does_see_player and !is_knocked_back:
 		var target_rotation := global_position.angle_to_point(target.global_position) + PI / 2
 		rotation = rotate_toward(rotation, target_rotation, turn_speed * delta)
 
@@ -80,7 +85,7 @@ func _physics_process(delta: float) -> void:
 
 	velocity *= friction
 
-	if velocity.length() > max_speed:
+	if !is_knocked_back and velocity.length() > max_speed:
 		velocity = velocity.normalized() * max_speed
 
 	move_and_slide()
@@ -114,3 +119,15 @@ func damage(amount: float):
 func die():
 	#TODO: Die animation and sfx
 	queue_free()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if !body.is_in_group("Player"):
+		return
+	body.damage(collision_damage)
+	var knockback_direction := body.global_position.direction_to(global_position)
+	velocity += knockback_direction * knockback_force
+	is_knocked_back = true
+	await get_tree().create_timer(knockback_time).timeout
+	is_knocked_back = false
+	

@@ -34,3 +34,5 @@ position = Vector2(-48, -59)
 [node name="CollisionShape2D2" type="CollisionPolygon2D" parent="Area2D" unique_id=1691076093]
 position = Vector2(0, -78)
 polygon = PackedVector2Array(-13, 3, 0, -15, 14, 3)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

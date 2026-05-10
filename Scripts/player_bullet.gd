@@ -16,10 +16,10 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Enemy"): 
-		print("Enemy")
+	if body.is_in_group("Enemy"):
 		body.damage(damage)
 		queue_free()
+	elif body.is_in_group("Bullet"):
+		return
 	else:
-		print("Not an enemy")
 		queue_free()

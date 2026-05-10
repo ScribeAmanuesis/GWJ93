@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_eunmp"]
 radius = 14.0
 
-[node name="Area2D" type="Area2D" unique_id=345900156]
+[node name="Area2D" type="Area2D" unique_id=345900156 groups=["Bullet"]]
 collision_layer = 4
 collision_mask = 17
 script = ExtResource("1_xtkkh")

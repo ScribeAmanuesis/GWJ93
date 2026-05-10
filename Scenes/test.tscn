@@ -34,10 +34,10 @@ frequency = 0.045
 movement_mode = 1
 
 [node name="CharacterBody2D2" parent="Entities" unique_id=638474384 instance=ExtResource("2_qc4db")]
-position = Vector2(2473, -1601)
+position = Vector2(502, -824)
 
 [node name="CharacterBody2D3" parent="Entities" unique_id=800915021 instance=ExtResource("3_35xla")]
-position = Vector2(462, -596)
+position = Vector2(572, -1768)
 
 [node name="Asteroids" type="Node2D" parent="." unique_id=881327917]
 
