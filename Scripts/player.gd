@@ -6,7 +6,7 @@ enum MovementMode {
 	ASTEROIDS
 }
 var engine_sfx : AudioStream = preload("res://Sfx/engine.mp3")
-@onready var engine_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var engine_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 @export var movement_mode: MovementMode = MovementMode.WASD

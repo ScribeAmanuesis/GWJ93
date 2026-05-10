@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cfhjbtgyypfsf"]
 
 [ext_resource type="Texture2D" uid="uid://b5j7c0k0cj3go" path="res://Sprites/Unsorted/ship_red_1.png" id="1_ld55o"]
-[ext_resource type="Script" uid="uid://d0fqo52mx4x6n" path="res://Scripts/enemy_1.gd" id="1_mxdow"]
+[ext_resource type="Script" uid="uid://d0fqo52mx4x6n" path="res://Scripts/enemy_red.gd" id="1_mxdow"]
 [ext_resource type="Script" uid="uid://cujlolipr5cx4" path="res://Scripts/ray_cast_2d.gd" id="3_4qy08"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ld55o"]

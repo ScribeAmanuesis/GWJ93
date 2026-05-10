@@ -45,5 +45,5 @@ animation = &"moving"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=259871295]
 shape = SubResource("CapsuleShape2D_cvnsp")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1274572311]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1324085090]
 volume_db = -15.0
