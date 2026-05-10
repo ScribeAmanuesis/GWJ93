@@ -11,6 +11,12 @@ var target: Player = null
 @export var obstacle_distance := 250.0
 @export var obstacle_avoid_speed := 450.0
 
+var can_shoot := true
+@onready var bullet_spawn: Marker2D = $Marker2D
+@export var bullet_scene: PackedScene = preload("res://Scenes/blue_enemy_bullet.tscn")
+
+@export var health := 100.0
+
 @export var max_speed := 520.0
 @export var acceleration := 700.0
 @export var friction := 400.0
@@ -69,7 +75,7 @@ func _physics_process(delta: float) -> void:
 						obstacle_avoidance += away_from_obstacle * obstacle_avoid_speed * avoid_strength
 
 	if target != null:
-
+		shoot()
 		var target_rotation := global_position.angle_to_point(target.global_position) + PI / 2
 		rotation = target_rotation
 
@@ -120,6 +126,15 @@ func _physics_process(delta: float) -> void:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 
 	move_and_slide()
+	
+func damage(amount: float):
+	health -= amount
+	if health <= 0:
+		die()
+		
+func die():
+	#TODO: Die animation and sfx
+	queue_free()
 
 func pick_new_wander() -> void:
 	wander_timer = randf_range(wander_change_time_min, wander_change_time_max)
@@ -128,3 +143,18 @@ func pick_new_wander() -> void:
 		orbit_side *= -1.0
 
 	target_orbit_speed = randf_range(min_orbit_speed, max_orbit_speed)
+	
+func shoot():
+	if !can_shoot:
+		return
+	can_shoot = false
+	var charge_steps := 5
+	for step in range(charge_steps):
+		print("Charging shoot, step: ", step +1)
+		#TODO Add charging effect
+		await get_tree().create_timer(1).timeout
+	var bullet = bullet_scene.instantiate()
+	bullet.global_position = bullet_spawn.global_position
+	bullet.direction = Vector2.UP.rotated(rotation)
+	add_sibling(bullet)
+	can_shoot = true

@@ -8,7 +8,9 @@
 radius = 59.0
 height = 156.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=638474384]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=638474384 groups=["Enemy"]]
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_mxdow")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=687753967]
@@ -26,3 +28,9 @@ position = Vector2(46, -60)
 
 [node name="MarkerLeft" type="Marker2D" parent="." unique_id=557701192]
 position = Vector2(-48, -59)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1635744493]
+
+[node name="CollisionShape2D2" type="CollisionPolygon2D" parent="Area2D" unique_id=1691076093]
+position = Vector2(0, -78)
+polygon = PackedVector2Array(-13, 3, 0, -15, 14, 3)

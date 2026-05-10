@@ -11,6 +11,8 @@ var target: Player = null
 var can_shoot := true
 @export var bullet_spread := 10
 
+@export var health := 100.0
+
 @export var turn_speed := 5
 @export var max_speed := 350
 @export var thrust := 600
@@ -103,3 +105,12 @@ func shoot() -> void:
 	can_shoot = false
 	await get_tree().create_timer(shoot_cooldown).timeout
 	can_shoot = true
+
+func damage(amount: float):
+	health -= amount
+	if health <= 0:
+		die()
+		
+func die():
+	#TODO: Die animation and sfx
+	queue_free()
