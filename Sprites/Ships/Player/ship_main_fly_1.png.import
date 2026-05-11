@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djua23dvcd6gp"
-path="res://.godot/imported/ship_main_fly_3.png-4b0af134f4484b62d3995c36fc5f65cc.ctex"
+uid="uid://clcemeooforge"
+path="res://.godot/imported/ship_main_fly_1.png-5756b9f5b350eadae338a162b0c2c6b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Unsorted/ship_main_fly_3.png"
-dest_files=["res://.godot/imported/ship_main_fly_3.png-4b0af134f4484b62d3995c36fc5f65cc.ctex"]
+source_file="res://Sprites/Ships/Player/ship_main_fly_1.png"
+dest_files=["res://.godot/imported/ship_main_fly_1.png-5756b9f5b350eadae338a162b0c2c6b3.ctex"]
 
 [params]
 

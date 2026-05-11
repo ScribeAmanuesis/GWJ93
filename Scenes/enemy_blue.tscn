@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d35lhfg2uftty"]
+
+[ext_resource type="Texture2D" uid="uid://44mfdsvqqrwh" path="res://Sprites/Unsorted/ship_blue_1.png" id="1_0eo2a"]
+[ext_resource type="Script" uid="uid://bdwhaujpuoyid" path="res://Scripts/enemy_blue.gd" id="1_01tjr"]
+[ext_resource type="Script" uid="uid://cujlolipr5cx4" path="res://Scripts/ray_cast_2d.gd" id="3_el3ep"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_01tjr"]
+radius = 89.005615
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=800915021 groups=["Enemy"]]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_01tjr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1471507308]
+texture = ExtResource("1_0eo2a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1036246525]
+position = Vector2(1, 6)
+shape = SubResource("CircleShape2D_01tjr")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=967261953]
+target_position = Vector2(0, -400)
+script = ExtResource("3_el3ep")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=564441175]
+position = Vector2(0, -97)

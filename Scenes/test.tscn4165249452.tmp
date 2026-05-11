@@ -6,22 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://d35lhfg2uftty" path="res://Scenes/enemy_blue.tscn" id="3_35xla"]
 [ext_resource type="Script" uid="uid://cxk8souejlbob" path="res://Scripts/camera_2d.gd" id="4_ys1qc"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_35xla"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ys1qc"]
 noise_type = 3
 seed = 6
 frequency = 0.045
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_i3aeo"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_35xla"]
 noise_type = 3
 seed = 3
 frequency = 0.045
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_5wyu1"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i3aeo"]
 noise_type = 3
 seed = 4
 frequency = 0.045
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0c07c"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5wyu1"]
 noise_type = 3
 seed = 6
 frequency = 0.045
@@ -34,10 +34,18 @@ frequency = 0.045
 movement_mode = 1
 
 [node name="CharacterBody2D2" parent="Entities" unique_id=638474384 instance=ExtResource("2_qc4db")]
-position = Vector2(502, -824)
+position = Vector2(618, -883)
+bullet_scene = null
+shoot_cooldown = null
+bullet_spread = null
+turn_speed = null
+max_speed = null
+thrust = null
+friction = null
+max_view = null
 
 [node name="CharacterBody2D3" parent="Entities" unique_id=800915021 instance=ExtResource("3_35xla")]
-position = Vector2(572, -1768)
+position = Vector2(359, -963)
 
 [node name="Asteroids" type="Node2D" parent="." unique_id=881327917]
 
@@ -47,28 +55,28 @@ angular_velocity = 0.13962634
 radius = 811
 line_width = 0.055
 variance_range = 202
-noise = SubResource("FastNoiseLite_35xla")
+noise = SubResource("FastNoiseLite_ys1qc")
 
 [node name="Asteroid2" parent="Asteroids" unique_id=334348681 instance=ExtResource("2_8od7v")]
 position = Vector2(1989, -2407)
 angular_velocity = -0.17453292
 radius = 512
 variance_range = 128
-noise = SubResource("FastNoiseLite_i3aeo")
+noise = SubResource("FastNoiseLite_35xla")
 
 [node name="Asteroid3" parent="Asteroids" unique_id=1211155862 instance=ExtResource("2_8od7v")]
 position = Vector2(-1026, -3076)
 angular_velocity = 0.10471976
 radius = 512
 variance_range = 128
-noise = SubResource("FastNoiseLite_5wyu1")
+noise = SubResource("FastNoiseLite_i3aeo")
 
 [node name="Asteroid4" parent="Asteroids" unique_id=1755146871 instance=ExtResource("2_8od7v")]
 position = Vector2(1459, -3850)
 angular_velocity = -0.17453292
 radius = 788
 variance_range = 128
-noise = SubResource("FastNoiseLite_0c07c")
+noise = SubResource("FastNoiseLite_5wyu1")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=813849724]
 zoom = Vector2(0.25, 0.25)
