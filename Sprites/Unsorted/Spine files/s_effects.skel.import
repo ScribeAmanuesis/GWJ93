@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://cki2bdmsblhqo"
+path="res://.godot/imported/s_effects.skel-0c8119e7f691826044328f3f40f052ef.spskel"
+
+[deps]
+
+source_file="res://Sprites/Unsorted/Spine files/s_effects.skel"
+dest_files=["res://.godot/imported/s_effects.skel-0c8119e7f691826044328f3f40f052ef.spskel"]
+
+[params]
+
