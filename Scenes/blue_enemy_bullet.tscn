@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csgttapwoq51u" path="res://Scripts/blue_enemy_bullet.gd" id="1_1el8d"]
 [ext_resource type="Texture2D" uid="uid://6doqh7b10ivf" path="res://icon.svg" id="1_dpiuv"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://c587a2j005y6a" path="res://Sprites/Unsorted/Spine files/bullet_effects_res.res" id="3_7ubiq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1el8d"]
 radius = 41.01219
@@ -10,6 +11,7 @@ radius = 41.01219
 script = ExtResource("1_1el8d")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1442286465]
+visible = false
 scale = Vector2(0.65625, 0.609375)
 texture = ExtResource("1_dpiuv")
 
@@ -17,6 +19,15 @@ texture = ExtResource("1_dpiuv")
 shape = SubResource("CircleShape2D_1el8d")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=43006700]
+
+[node name="SpineSprite" type="SpineSprite" parent="." unique_id=169552181]
+skeleton_data_res = ExtResource("3_7ubiq")
+preview_skin = "Default"
+preview_animation = "bs_orb"
+preview_frame = false
+preview_time = 0.0
+z_index = -1
+scale = Vector2(3, 3)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

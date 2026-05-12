@@ -27,6 +27,18 @@ var engine_sfx : AudioStream = preload("res://Sfx/engine.mp3")
 @export var max_speed := 500.0
 @export var friction := 0.98
 
+# Spine Nodes
+@onready var body: SpineSprite = $Body
+@onready var cannon: SpineSprite = $Cannon
+
+func _ready() -> void:
+
+	# Set initial animation state
+	var body_anim_state : = body.get_animation_state()
+	body_anim_state.add_animation("ds_idle", 0.0, true)
+	var cannon_anim_state : = cannon.get_animation_state()
+	cannon_anim_state.add_animation("ds_cannon_idle", 0.0, true)
+
 func _physics_process(delta: float) -> void:
 	#if movement_mode == MovementMode.WASD:
 		#move_wasd()
@@ -44,6 +56,12 @@ func shoot():
 	bullet.global_position = bullet_spawn.global_position
 	bullet.direction = Vector2.UP.rotated(rotation)
 	add_sibling(bullet)
+
+	# Change animation state
+	var cannon_anim_state : = cannon.get_animation_state()
+	cannon_anim_state.set_animation("ds_cannon_shot")
+	cannon_anim_state.add_animation("ds_cannon_idle", 0.3, true)
+
 	can_shoot = false
 	await get_tree().create_timer(shoot_delay).timeout
 	can_shoot = true
@@ -81,12 +99,23 @@ func move_asteroids(delta: float) -> void:
 
 	if velocity.length() > max_speed:
 		velocity = velocity.normalized() * max_speed
-		
+
+	# If velocity is near zero, set to idle, otherwise set to fly
+	var body_anim_state : = body.get_animation_state()
+	if velocity.length() < 10.0:
+		body_anim_state.add_animation("ds_idle", 0.0, true)
+	else:
+		body_anim_state.add_animation("ds_fly",0.0, true)
+
 func damage(amount: float):
 	health -= amount
 	if health <= 0:
 		die()
-		
+
 func die():
 	#TODO: Die animation, sfx and reset run
+	var body_anim_state : = body.get_animation_state()
+	body_anim_state.set_animation("ds_defeat")
+	cannon.hide()
+	await body.animation_completed
 	queue_free()

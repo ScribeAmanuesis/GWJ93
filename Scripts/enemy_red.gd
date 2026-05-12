@@ -30,8 +30,20 @@ var view_area := deg_to_rad(360.0)
 @export var max_view := 1000.0
 var angle_between_rays := deg_to_rad(5.0)
 
+#Spine Nodes
+@onready var body: SpineSprite = $Body
+@onready var cannon: SpineSprite = $Cannon
+
+
+
 func _ready() -> void:
 	generate_rays()
+
+	# Set initial animation state
+	var body_anim_state : = body.get_animation_state()
+	body_anim_state.add_animation("rs_idle", 0.0, true)
+	var cannon_anim_state : = cannon.get_animation_state()
+	cannon_anim_state.add_animation("rs_cannon_idle", 0.0, true)
 
 func generate_rays() -> void:
 	var ray_count := int(view_area / angle_between_rays)
@@ -85,6 +97,13 @@ func _physics_process(delta: float) -> void:
 
 	velocity *= friction
 
+	# If velocity is near zero, set to idle, otherwise set to fly
+	var body_anim_state : = body.get_animation_state()
+	if velocity.length() < 10.0:
+		body_anim_state.add_animation("rs_idle", 0.0, true)
+	else:
+		body_anim_state.add_animation("rs_fly",0.0, true)
+
 	if !is_knocked_back and velocity.length() > max_speed:
 		velocity = velocity.normalized() * max_speed
 
@@ -104,8 +123,15 @@ func shoot() -> void:
 	bullet_left.global_position = marker_left.global_position
 	bullet_left.direction = Vector2.UP.rotated(rotation - deg_to_rad(bullet_spread))
 
-	get_tree().current_scene.add_child(bullet_right)
-	get_tree().current_scene.add_child(bullet_left)
+	add_sibling(bullet_right)
+	#get_tree().current_scene.add_child(bullet_right
+	add_sibling(bullet_left)
+	#get_tree().current_scene.add_child(bullet_left)
+
+	# Change animation state
+	var cannon_anim_state : = cannon.get_animation_state()
+	cannon_anim_state.set_animation("rs_cannon_shot")
+	cannon_anim_state.add_animation("rs_cannon_idle", 0.3, true)
 
 	can_shoot = false
 	await get_tree().create_timer(shoot_cooldown).timeout
@@ -115,7 +141,7 @@ func damage(amount: float):
 	health -= amount
 	if health <= 0:
 		die()
-		
+
 func die():
 	#TODO: Die animation and sfx
 	queue_free()
@@ -130,4 +156,3 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	is_knocked_back = true
 	await get_tree().create_timer(knockback_time).timeout
 	is_knocked_back = false
-	

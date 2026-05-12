@@ -4,11 +4,16 @@ extends Area2D
 @export var damage := 10.0
 var direction := Vector2.UP
 
+@onready var spine_sprite: SpineSprite = $SpineSprite
 
+func _ready() -> void:
+	var anim_state :  = spine_sprite.get_animation_state()
+	anim_state.set_animation("rs_laser", true, 0)
 
 func _physics_process(delta: float) -> void:
 	global_position += direction * speed * delta
-	
+	global_rotation = direction.angle()
+
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

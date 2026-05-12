@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xe333376071k" path="res://Scripts/player_bullet.gd" id="1_3m2mg"]
 [ext_resource type="Texture2D" uid="uid://6doqh7b10ivf" path="res://icon.svg" id="1_bg8x2"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://c587a2j005y6a" path="res://Sprites/Unsorted/Spine files/bullet_effects_res.res" id="3_jskx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3m2mg"]
 size = Vector2(20, 21)
@@ -12,6 +13,7 @@ collision_mask = 18
 script = ExtResource("1_3m2mg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1592652561]
+visible = false
 scale = Vector2(0.171875, 0.1875)
 texture = ExtResource("1_bg8x2")
 
@@ -20,6 +22,15 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_3m2mg")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1295107270]
+
+[node name="SpineSprite" type="SpineSprite" parent="." unique_id=616885415]
+skeleton_data_res = ExtResource("3_jskx8")
+preview_skin = "Default"
+preview_animation = "ds_laser"
+preview_frame = false
+preview_time = 0.0
+rotation = 1.5707964
+scale = Vector2(2, 2)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

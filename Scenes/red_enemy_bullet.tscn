@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://6doqh7b10ivf" path="res://icon.svg" id="1_eunmp"]
 [ext_resource type="Script" uid="uid://c5i8htey358n2" path="res://Scripts/red_enemy_bullet.gd" id="1_xtkkh"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://c587a2j005y6a" path="res://Sprites/Unsorted/Spine files/bullet_effects_res.res" id="3_5rc6e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eunmp"]
 radius = 14.0
@@ -12,6 +13,7 @@ collision_mask = 17
 script = ExtResource("1_xtkkh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1149401367]
+visible = false
 position = Vector2(-1.1920929e-07, 0)
 scale = Vector2(0.23437499, 0.21875)
 texture = ExtResource("1_eunmp")
@@ -20,6 +22,16 @@ texture = ExtResource("1_eunmp")
 shape = SubResource("CircleShape2D_eunmp")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=669193802]
+
+[node name="SpineSprite" type="SpineSprite" parent="." unique_id=810983584]
+skeleton_data_res = ExtResource("3_5rc6e")
+preview_skin = "Default"
+preview_animation = "rs_laser"
+preview_frame = false
+preview_time = 0.0
+z_index = -1
+rotation = 1.5707964
+scale = Vector2(2, 2)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

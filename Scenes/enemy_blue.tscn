@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://44mfdsvqqrwh" path="res://Sprites/Unsorted/ship_blue_1.png" id="1_0eo2a"]
 [ext_resource type="Script" uid="uid://bdwhaujpuoyid" path="res://Scripts/enemy_blue.gd" id="1_01tjr"]
-[ext_resource type="Script" uid="uid://cujlolipr5cx4" path="res://Scripts/ray_cast_2d.gd" id="3_el3ep"]
+[ext_resource type="Script" path="res://Scripts/ray_cast_2d.gd" id="3_el3ep"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://dasp346ogkhdi" path="res://Sprites/Unsorted/Spine files/bs_model_res.tres" id="4_xnyxp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_01tjr"]
 radius = 89.005615
@@ -13,6 +14,7 @@ collision_mask = 9
 script = ExtResource("1_01tjr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1471507308]
+visible = false
 texture = ExtResource("1_0eo2a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1036246525]
@@ -25,3 +27,17 @@ script = ExtResource("3_el3ep")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=564441175]
 position = Vector2(0, -97)
+
+[node name="Body" type="SpineSprite" parent="." unique_id=1418629211]
+skeleton_data_res = ExtResource("4_xnyxp")
+preview_skin = "Default"
+preview_animation = "bs_fly"
+preview_frame = false
+preview_time = 0.0
+
+[node name="Cannon" type="SpineSprite" parent="." unique_id=8588930]
+skeleton_data_res = ExtResource("4_xnyxp")
+preview_skin = "Default"
+preview_animation = "bs_cannon_idle"
+preview_frame = false
+preview_time = 0.0

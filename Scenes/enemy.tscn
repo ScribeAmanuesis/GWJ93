@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://wytr6iuvtn24"]
+
+[ext_resource type="Texture2D" uid="uid://6doqh7b10ivf" path="res://icon.svg" id="1_hghv2"]
+[ext_resource type="Script" path="res://Scripts/raycast_detector.gd" id="2_1f0kj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1f0kj"]
+
+[sub_resource type="GDScript" id="GDScript_hghv2"]
+script/source = "extends Node2D
+
+@export var avoid_scalar : = 2.0
+@export var pursue_scalar : = 10.0
+
+@onready var body : = get_parent()
+@onready var avoid_obstacles: Node2D = $AvoidObstacles
+@onready var find_target: Node2D = $FindTarget
+
+
+func _physics_process(delta: float) -> void:
+	var desired_direction : = Vector2.ZERO
+	print(desired_direction)
+	print(avoid_obstacles.get_colliding_direction())
+	print(find_target.get_direction_to_target())
+	desired_direction -= avoid_obstacles.get_colliding_direction() * avoid_scalar
+	desired_direction += find_target.get_direction_to_target() * pursue_scalar
+	body.velocity += desired_direction * delta
+	body.move_and_slide()
+"
+
+[sub_resource type="GDScript" id="GDScript_afpow"]
+script/source = "extends Node2D
+
+@onready var raycast: RayCast2D = $RayCast2D
+@onready var area: Area2D = $Area2D
+@onready var vision_timer: Timer = $Timer
+
+var target_group : = \"player\"
+var target :
+	set(new_target):
+		if new_target == null:
+			new_target = target
+		if new_target is PhysicsBody2D:
+			new_target = target
+			target_found.emit(target)
+
+
+signal target_found(body)
+
+func _physics_process(_delta: float) -> void:
+	for body in area.get_overlapping_bodies():
+		if body.is_in_group(target_group):
+			target = body
+
+	if target:
+		raycast.target_position = to_local(target.global_position)
+		raycast.force_raycast_update()
+		if raycast.get_collider() == target:
+			vision_timer.start()
+		if not raycast.is_colliding() and vision_timer.is_stopped():
+			target = null
+
+func get_direction_to_target():
+	if target:
+		return to_local(target.global_position).normalized()
+	else:
+		return Vector2.ZERO
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_afpow"]
+radius = 1024.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=914163143]
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=450149217]
+shape = SubResource("CircleShape2D_1f0kj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=476704819]
+texture = ExtResource("1_hghv2")
+
+[node name="AIController" type="Node2D" parent="." unique_id=1098795753]
+script = SubResource("GDScript_hghv2")
+avoid_scalar = 0.2
+pursue_scalar = 1.0
+
+[node name="AvoidObstacles" type="Node2D" parent="AIController" unique_id=1723370955 node_paths=PackedStringArray("collision_exceptions")]
+script = ExtResource("2_1f0kj")
+radius = 512
+collision_exceptions = [NodePath("../..")]
+
+[node name="@RayCast2D@230827" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=1713969176]
+target_position = Vector2(512, 0)
+
+[node name="@RayCast2D@230828" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=202187686]
+target_position = Vector2(502.16205, 99.886246)
+
+[node name="@RayCast2D@230829" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=755432582]
+target_position = Vector2(473.0263, 195.93393)
+
+[node name="@RayCast2D@230830" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=1978191461]
+target_position = Vector2(425.71243, 284.45197)
+
+[node name="@RayCast2D@230831" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=643410677]
+target_position = Vector2(362.03867, 362.03867)
+
+[node name="@RayCast2D@230832" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=270069265]
+target_position = Vector2(284.45197, 425.71243)
+
+[node name="@RayCast2D@230833" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=1777631011]
+target_position = Vector2(195.93391, 473.0263)
+
+[node name="@RayCast2D@230834" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=517868316]
+target_position = Vector2(99.88626, 502.16205)
+
+[node name="@RayCast2D@230835" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=1608823340]
+target_position = Vector2(-2.238023e-05, 512)
+
+[node name="@RayCast2D@230836" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=2015047423]
+target_position = Vector2(-99.886246, 502.16205)
+
+[node name="@RayCast2D@230837" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=882133832]
+target_position = Vector2(-195.9339, 473.02634)
+
+[node name="@RayCast2D@230838" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=263650186]
+target_position = Vector2(-284.45193, 425.71246)
+
+[node name="@RayCast2D@230839" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=281616034]
+target_position = Vector2(-362.03867, 362.03867)
+
+[node name="@RayCast2D@230840" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=526025157]
+target_position = Vector2(-425.71246, 284.45193)
+
+[node name="@RayCast2D@230841" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=1480482360]
+target_position = Vector2(-473.0263, 195.93394)
+
+[node name="@RayCast2D@230842" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=1686074465]
+target_position = Vector2(-502.16208, 99.88624)
+
+[node name="@RayCast2D@230843" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=1500260688]
+target_position = Vector2(-512, -4.476046e-05)
+
+[node name="@RayCast2D@230844" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=495600014]
+target_position = Vector2(-502.16208, -99.88621)
+
+[node name="@RayCast2D@230845" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=1038846265]
+target_position = Vector2(-473.0263, -195.93391)
+
+[node name="@RayCast2D@230846" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=988298257]
+target_position = Vector2(-425.7124, -284.452)
+
+[node name="@RayCast2D@230847" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=548281150]
+target_position = Vector2(-362.0387, -362.03864)
+
+[node name="@RayCast2D@230848" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=2146086785]
+target_position = Vector2(-284.45206, -425.71237)
+
+[node name="@RayCast2D@230849" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=1913095035]
+target_position = Vector2(-195.93399, -473.0263)
+
+[node name="@RayCast2D@230850" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=487877942]
+target_position = Vector2(-99.88628, -502.16205)
+
+[node name="@RayCast2D@230851" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=1635549753]
+target_position = Vector2(6.105539e-06, -512)
+
+[node name="@RayCast2D@230852" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=2043633322]
+target_position = Vector2(99.88629, -502.16205)
+
+[node name="@RayCast2D@230853" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=1260914247]
+target_position = Vector2(195.934, -473.02628)
+
+[node name="@RayCast2D@230854" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=523542100]
+target_position = Vector2(284.45187, -425.7125)
+
+[node name="@RayCast2D@230855" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=533748590]
+target_position = Vector2(362.0386, -362.03873)
+
+[node name="@RayCast2D@230856" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=642205942]
+target_position = Vector2(425.71243, -284.452)
+
+[node name="@RayCast2D@230857" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=717689904]
+target_position = Vector2(473.02634, -195.93391)
+
+[node name="@RayCast2D@230858" type="RayCast2D" parent="AIController/AvoidObstacles" unique_id=1161022947]
+target_position = Vector2(502.16208, -99.8862)
+
+[node name="FindTarget" type="Node2D" parent="AIController" unique_id=2076507742]
+script = SubResource("GDScript_afpow")
+
+[node name="Timer" type="Timer" parent="AIController/FindTarget" unique_id=2036346233]
+wait_time = 3.0
+one_shot = true
+
+[node name="RayCast2D" type="RayCast2D" parent="AIController/FindTarget" unique_id=967146843]
+
+[node name="Area2D" type="Area2D" parent="AIController/FindTarget" unique_id=255960313]
+position = Vector2(1, -274)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AIController/FindTarget/Area2D" unique_id=1940372283]
+position = Vector2(-2, -803)
+shape = SubResource("CircleShape2D_afpow")
+
+[node name="Attack" type="Node2D" parent="AIController" unique_id=1560461654]

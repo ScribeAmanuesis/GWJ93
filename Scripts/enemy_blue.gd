@@ -35,9 +35,19 @@ var view_area := deg_to_rad(360.0)
 @export var max_view := 1500.0
 var angle_between_rays := deg_to_rad(5.0)
 
+# Spine Nodes
+@onready var body: SpineSprite = $Body
+@onready var cannon: SpineSprite = $Cannon
+
+
 func _ready() -> void:
 	generate_rays()
 	pick_new_wander()
+	# Set initial animation state
+	var body_anim_state : = body.get_animation_state()
+	body_anim_state.add_animation("bs_idle", 0.0, true)
+	var cannon_anim_state : = cannon.get_animation_state()
+	cannon_anim_state.add_animation("bs_cannon_idle", 0.0, true)
 
 func generate_rays() -> void:
 	var ray_count := int(view_area / angle_between_rays)
@@ -125,13 +135,20 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 
+	# If velocity is near zero, set to idle, otherwise set to fly
+	var body_anim_state : = body.get_animation_state()
+	if velocity.length() < 10.0:
+		body_anim_state.add_animation("bs_idle", 0.0, true)
+	else:
+		body_anim_state.add_animation("bs_fly",0.0, true)
+
 	move_and_slide()
-	
+
 func damage(amount: float):
 	health -= amount
 	if health <= 0:
 		die()
-		
+
 func die():
 	#TODO: Die animation and sfx
 	queue_free()
@@ -143,18 +160,26 @@ func pick_new_wander() -> void:
 		orbit_side *= -1.0
 
 	target_orbit_speed = randf_range(min_orbit_speed, max_orbit_speed)
-	
+
 func shoot():
 	if !can_shoot:
 		return
 	can_shoot = false
 	var charge_steps := 5
+	# Change animation state
+	var cannon_anim_state : = cannon.get_animation_state()
 	for step in range(charge_steps):
 		print("Charging shoot, step: ", step +1)
 		#TODO Add charging effect
+		if step == charge_steps - 2:
+			cannon_anim_state.set_animation("bs_cannon_shot")
 		await get_tree().create_timer(1).timeout
+
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = bullet_spawn.global_position
 	bullet.direction = Vector2.UP.rotated(rotation)
 	add_sibling(bullet)
+
+	cannon_anim_state.add_animation("bs_cannon_idle", 2.0, true)
+
 	can_shoot = true

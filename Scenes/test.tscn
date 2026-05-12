@@ -2,26 +2,31 @@
 
 [ext_resource type="PackedScene" uid="uid://df8g8wx2sbp58" path="res://Scenes/player.tscn" id="1_lc1oi"]
 [ext_resource type="PackedScene" uid="uid://it307ruobgy5" path="res://Scenes/asteroid.tscn" id="2_8od7v"]
-[ext_resource type="PackedScene" uid="uid://cfhjbtgyypfsf" path="res://Scenes/enemy_red.tscn" id="2_qc4db"]
+[ext_resource type="PackedScene" uid="uid://c0j6ddtmmahdh" path="res://Scenes/enemy_red.tscn" id="2_qc4db"]
 [ext_resource type="PackedScene" uid="uid://d35lhfg2uftty" path="res://Scenes/enemy_blue.tscn" id="3_35xla"]
-[ext_resource type="Script" uid="uid://cxk8souejlbob" path="res://Scripts/camera_2d.gd" id="4_ys1qc"]
+[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="4_ys1qc"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://qm1fr237yml8" path="res://Sprites/Unsorted/Spine files/ds_model_res.tres" id="6_i3aeo"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://dasp346ogkhdi" path="res://Sprites/Unsorted/Spine files/bs_model_res.tres" id="7_yb21e"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://jhl0jc83452w" path="res://Sprites/Unsorted/Spine files/gs_model_res.tres" id="8_qpfo2"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://bifko22ytena8" path="res://Sprites/Unsorted/Spine files/rs_model_res.tres" id="9_iaow0"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://c587a2j005y6a" path="res://Sprites/Unsorted/Spine files/bullet_effects_res.res" id="12_2ocox"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_35xla"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iaow0"]
 noise_type = 3
 seed = 6
 frequency = 0.045
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_i3aeo"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qpfo2"]
 noise_type = 3
 seed = 3
 frequency = 0.045
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_5wyu1"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yb21e"]
 noise_type = 3
 seed = 4
 frequency = 0.045
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0c07c"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_aees8"]
 noise_type = 3
 seed = 6
 frequency = 0.045
@@ -47,29 +52,125 @@ angular_velocity = 0.13962634
 radius = 811
 line_width = 0.055
 variance_range = 202
-noise = SubResource("FastNoiseLite_35xla")
+noise = SubResource("FastNoiseLite_iaow0")
 
 [node name="Asteroid2" parent="Asteroids" unique_id=334348681 instance=ExtResource("2_8od7v")]
 position = Vector2(1989, -2407)
 angular_velocity = -0.17453292
 radius = 512
 variance_range = 128
-noise = SubResource("FastNoiseLite_i3aeo")
+noise = SubResource("FastNoiseLite_qpfo2")
 
 [node name="Asteroid3" parent="Asteroids" unique_id=1211155862 instance=ExtResource("2_8od7v")]
 position = Vector2(-1026, -3076)
 angular_velocity = 0.10471976
 radius = 512
 variance_range = 128
-noise = SubResource("FastNoiseLite_5wyu1")
+noise = SubResource("FastNoiseLite_yb21e")
 
 [node name="Asteroid4" parent="Asteroids" unique_id=1755146871 instance=ExtResource("2_8od7v")]
 position = Vector2(1459, -3850)
 angular_velocity = -0.17453292
 radius = 788
 variance_range = 128
-noise = SubResource("FastNoiseLite_0c07c")
+noise = SubResource("FastNoiseLite_aees8")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=813849724]
 zoom = Vector2(0.25, 0.25)
 script = ExtResource("4_ys1qc")
+
+[node name="DS" type="SpineSprite" parent="." unique_id=1611127698]
+skeleton_data_res = ExtResource("6_i3aeo")
+preview_skin = "Default"
+preview_animation = "ds_fly"
+preview_frame = false
+preview_time = 0.0
+position = Vector2(4047, 475)
+
+[node name="DS2" type="SpineSprite" parent="." unique_id=1501084521]
+skeleton_data_res = ExtResource("6_i3aeo")
+preview_skin = "Default"
+preview_animation = "ds_cannon_idle"
+preview_frame = true
+preview_time = 0.0
+position = Vector2(4047, 475)
+
+[node name="BS" type="SpineSprite" parent="." unique_id=158673760]
+skeleton_data_res = ExtResource("7_yb21e")
+preview_skin = "Default"
+preview_animation = "bs_idle"
+preview_frame = false
+preview_time = 0.0
+position = Vector2(4243, 470)
+
+[node name="BSCanon" type="SpineSprite" parent="." unique_id=1170098321]
+skeleton_data_res = ExtResource("7_yb21e")
+preview_skin = "Default"
+preview_animation = "bs_cannon_idle"
+preview_frame = false
+preview_time = 0.0
+position = Vector2(4243, 470)
+
+[node name="GS" type="SpineSprite" parent="." unique_id=1630985590]
+skeleton_data_res = ExtResource("8_qpfo2")
+preview_skin = "Default"
+preview_animation = "gs_idle"
+preview_frame = false
+preview_time = 0.0
+position = Vector2(4449, 469)
+
+[node name="GSCanon" type="SpineSprite" parent="." unique_id=1632460091]
+skeleton_data_res = ExtResource("8_qpfo2")
+preview_skin = "Default"
+preview_animation = "gs_cannon_idle"
+preview_frame = true
+preview_time = 0.0
+position = Vector2(4449, 469)
+
+[node name="RS" type="SpineSprite" parent="." unique_id=2016665652]
+skeleton_data_res = ExtResource("9_iaow0")
+preview_skin = "Default"
+preview_animation = "rs_fly"
+preview_frame = false
+preview_time = 0.0
+position = Vector2(4649, 467)
+
+[node name="RSCanon" type="SpineSprite" parent="." unique_id=62353699]
+skeleton_data_res = ExtResource("9_iaow0")
+preview_skin = "Default"
+preview_animation = "rs_cannon_idle"
+preview_frame = true
+preview_time = 0.0
+position = Vector2(4649, 467)
+
+[node name="SE" type="SpineSprite" parent="." unique_id=1499604232]
+skeleton_data_res = ExtResource("12_2ocox")
+preview_skin = "Default"
+preview_animation = "bs_orb"
+preview_frame = false
+preview_time = 0.0
+position = Vector2(4250, 275)
+
+[node name="SE2" type="SpineSprite" parent="." unique_id=1732032991]
+skeleton_data_res = ExtResource("12_2ocox")
+preview_skin = "Default"
+preview_animation = "gs_laserbeam"
+preview_frame = false
+preview_time = 0.0
+position = Vector2(4449, 266)
+
+[node name="SE3" type="SpineSprite" parent="." unique_id=635717336]
+skeleton_data_res = ExtResource("12_2ocox")
+preview_skin = "Default"
+preview_animation = "ds_laser"
+preview_frame = false
+preview_time = 0.0
+position = Vector2(4053, 293)
+
+[node name="SE4" type="SpineSprite" parent="." unique_id=1714810986]
+skeleton_data_res = ExtResource("12_2ocox")
+preview_skin = "Default"
+preview_animation = "rs_laser"
+preview_frame = false
+preview_time = 0.0
+position = Vector2(4651, 289)
