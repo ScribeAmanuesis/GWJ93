@@ -9,24 +9,58 @@
 [ext_resource type="SpineSkeletonDataResource" uid="uid://dasp346ogkhdi" path="res://Sprites/Unsorted/Spine files/bs_model_res.tres" id="7_yb21e"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://jhl0jc83452w" path="res://Sprites/Unsorted/Spine files/gs_model_res.tres" id="8_qpfo2"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://bifko22ytena8" path="res://Sprites/Unsorted/Spine files/rs_model_res.tres" id="9_iaow0"]
+[ext_resource type="Texture2D" uid="uid://buhp8seltjjl1" path="res://Sprites/Unsorted/BG/Nebula/BG.png" id="11_j44qy"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://c587a2j005y6a" path="res://Sprites/Unsorted/Spine files/bullet_effects_res.res" id="12_2ocox"]
+[ext_resource type="Texture2D" uid="uid://drfrarcj3cpuq" path="res://Sprites/Unsorted/BG/Nebula/BlueNebula1.png" id="12_ipur1"]
+[ext_resource type="Texture2D" uid="uid://ijvvbgycnlx1" path="res://Sprites/Unsorted/BG/Stars/StarsBlue1.png" id="12_kcn80"]
+[ext_resource type="Texture2D" uid="uid://d0f12rwwd2fx8" path="res://Sprites/Unsorted/BG/Nebula/RedNebula1.png" id="13_4fddv"]
+[ext_resource type="Texture2D" uid="uid://dq8mjsy6rcflw" path="res://Sprites/Unsorted/BG/Stars/StarsBlue2.png" id="13_vbh6s"]
+[ext_resource type="Texture2D" uid="uid://c81xp2n5rrx2a" path="res://Sprites/Unsorted/BG/Stars/StarsBlue3.png" id="14_7wv1b"]
+[ext_resource type="Texture2D" uid="uid://cfpkmmkbar782" path="res://Sprites/Unsorted/BG/Nebula/GreenNebula1.png" id="14_wqbs1"]
+[ext_resource type="Texture2D" uid="uid://dr4qfvb00jer1" path="res://Sprites/Unsorted/BG/Nebula/BlueNebula2.png" id="15_051wo"]
+[ext_resource type="Texture2D" uid="uid://6eoyrhq2g562" path="res://Sprites/Unsorted/BG/Nebula/BlueNebula3.png" id="16_yn8tc"]
+[ext_resource type="Texture2D" uid="uid://kk2w0s1x4xp4" path="res://Sprites/Unsorted/BG/Nebula/BlueNebula4.png" id="17_66mtb"]
+[ext_resource type="Texture2D" uid="uid://3wcq3wjv1ngk" path="res://Sprites/Unsorted/BG/Nebula/BlueNebula5.png" id="18_d83ya"]
+[ext_resource type="Texture2D" uid="uid://3loutxhm76ta" path="res://Sprites/Unsorted/BG/Nebula/GreenNebula2.png" id="19_0ocgh"]
+[ext_resource type="Texture2D" uid="uid://b5ekwaxkbh18d" path="res://Sprites/Unsorted/BG/Nebula/GreenNebula3.png" id="20_kcn80"]
+[ext_resource type="Texture2D" uid="uid://b5dt7gljjnctm" path="res://Sprites/Unsorted/BG/Nebula/GreenNebula4.png" id="21_vbh6s"]
+[ext_resource type="Texture2D" uid="uid://dr8ay6ov471yp" path="res://Sprites/Unsorted/BG/Nebula/GreenNebula5.png" id="22_7wv1b"]
+[ext_resource type="Texture2D" uid="uid://bd87ua8d6d6hx" path="res://Sprites/Unsorted/BG/Nebula/RedNebula2.png" id="23_klam7"]
+[ext_resource type="Texture2D" uid="uid://s87juwmus2ac" path="res://Sprites/Unsorted/BG/Stars/StarsGreen1.png" id="23_qs4hy"]
+[ext_resource type="Texture2D" uid="uid://b70clnuo56kk1" path="res://Sprites/Unsorted/BG/Stars/StarsGreen2.png" id="24_3tq4f"]
+[ext_resource type="Texture2D" uid="uid://dgdigfouotm7l" path="res://Sprites/Unsorted/BG/Nebula/RedNebula3.png" id="24_qs4hy"]
+[ext_resource type="Texture2D" uid="uid://ce1k22qhwxxmc" path="res://Sprites/Unsorted/BG/Nebula/RedNebula4.png" id="25_3tq4f"]
+[ext_resource type="Texture2D" uid="uid://ybptofiduaki" path="res://Sprites/Unsorted/BG/Stars/StarsGreen3.png" id="25_ud6rk"]
+[ext_resource type="Texture2D" uid="uid://bbmnhcl0p8308" path="res://Sprites/Unsorted/BG/Nebula/RedNebula5.png" id="26_ud6rk"]
+[ext_resource type="Texture2D" uid="uid://08l6tbyugix6" path="res://Sprites/Unsorted/BG/Planets/BluePlanet1.png" id="27_epukl"]
+[ext_resource type="Texture2D" uid="uid://dod7a3tfjxnbd" path="res://Sprites/Unsorted/BG/Planets/BluePlanet2.png" id="28_bg5m0"]
+[ext_resource type="Texture2D" uid="uid://betjoedr8uv4t" path="res://Sprites/Unsorted/BG/Planets/BluePlanet3.png" id="29_17bvh"]
+[ext_resource type="Texture2D" uid="uid://dqchknqb0nhyt" path="res://Sprites/Unsorted/BG/Planets/GreenPlanet1.png" id="30_5ch40"]
+[ext_resource type="Texture2D" uid="uid://de14e8r25n0hr" path="res://Sprites/Unsorted/BG/Planets/GreenPlanet2.png" id="31_hqbdk"]
+[ext_resource type="Texture2D" uid="uid://daadr11w6j6ps" path="res://Sprites/Unsorted/BG/Planets/GreenPlanet3.png" id="32_mgie7"]
+[ext_resource type="Texture2D" uid="uid://ccdihuuem5gop" path="res://Sprites/Unsorted/BG/Planets/RedPlanet1.png" id="33_iykje"]
+[ext_resource type="Texture2D" uid="uid://cqwjjnpptq1ye" path="res://Sprites/Unsorted/BG/Planets/RedPlanet2.png" id="34_duwi1"]
+[ext_resource type="Texture2D" uid="uid://bpa3bsidfnb8o" path="res://Sprites/Unsorted/BG/Stars/StarsRed1.png" id="34_epukl"]
+[ext_resource type="Texture2D" uid="uid://dkaqls5kxsjn0" path="res://Sprites/Unsorted/BG/Planets/RedPlanet3.png" id="35_avh4v"]
+[ext_resource type="Texture2D" uid="uid://deapds21qtea3" path="res://Sprites/Unsorted/BG/Stars/StarsRed2.png" id="35_bg5m0"]
+[ext_resource type="Texture2D" uid="uid://bgjr6txhg8oi" path="res://Sprites/Unsorted/BG/Stars/StarsRed3.png" id="36_17bvh"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_iaow0"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kcn80"]
 noise_type = 3
 seed = 6
 frequency = 0.045
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_qpfo2"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vbh6s"]
 noise_type = 3
 seed = 3
 frequency = 0.045
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_yb21e"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7wv1b"]
 noise_type = 3
 seed = 4
 frequency = 0.045
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_aees8"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_klam7"]
 noise_type = 3
 seed = 6
 frequency = 0.045
@@ -52,28 +86,28 @@ angular_velocity = 0.13962634
 radius = 811
 line_width = 0.055
 variance_range = 202
-noise = SubResource("FastNoiseLite_iaow0")
+noise = SubResource("FastNoiseLite_kcn80")
 
 [node name="Asteroid2" parent="Asteroids" unique_id=334348681 instance=ExtResource("2_8od7v")]
 position = Vector2(1989, -2407)
 angular_velocity = -0.17453292
 radius = 512
 variance_range = 128
-noise = SubResource("FastNoiseLite_qpfo2")
+noise = SubResource("FastNoiseLite_vbh6s")
 
 [node name="Asteroid3" parent="Asteroids" unique_id=1211155862 instance=ExtResource("2_8od7v")]
 position = Vector2(-1026, -3076)
 angular_velocity = 0.10471976
 radius = 512
 variance_range = 128
-noise = SubResource("FastNoiseLite_yb21e")
+noise = SubResource("FastNoiseLite_7wv1b")
 
 [node name="Asteroid4" parent="Asteroids" unique_id=1755146871 instance=ExtResource("2_8od7v")]
 position = Vector2(1459, -3850)
 angular_velocity = -0.17453292
 radius = 788
 variance_range = 128
-noise = SubResource("FastNoiseLite_aees8")
+noise = SubResource("FastNoiseLite_klam7")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=813849724]
 zoom = Vector2(0.25, 0.25)
@@ -174,3 +208,147 @@ preview_animation = "rs_laser"
 preview_frame = false
 preview_time = 0.0
 position = Vector2(4651, 289)
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=709134165]
+position = Vector2(-10378, -1266)
+texture = ExtResource("11_j44qy")
+
+[node name="Bg2" type="Sprite2D" parent="." unique_id=1480667243]
+position = Vector2(-15601, -1235)
+texture = ExtResource("11_j44qy")
+
+[node name="StarsBlue1" type="Sprite2D" parent="." unique_id=1832065117]
+position = Vector2(-15604, -1236)
+texture = ExtResource("12_kcn80")
+
+[node name="StarsBlue2" type="Sprite2D" parent="." unique_id=15861916]
+position = Vector2(-16307, -2169)
+texture = ExtResource("13_vbh6s")
+
+[node name="StarsBlue3" type="Sprite2D" parent="." unique_id=598557334]
+position = Vector2(-14801, -2732)
+texture = ExtResource("14_7wv1b")
+
+[node name="BlueNebula1" type="Sprite2D" parent="." unique_id=553298554]
+position = Vector2(-15520, -1312)
+texture = ExtResource("12_ipur1")
+
+[node name="BlueNebula2" type="Sprite2D" parent="." unique_id=1428204700]
+position = Vector2(-15522, -2351)
+texture = ExtResource("15_051wo")
+
+[node name="BlueNebula3" type="Sprite2D" parent="." unique_id=525379970]
+position = Vector2(-15680, -866)
+texture = ExtResource("16_yn8tc")
+
+[node name="BlueNebula4" type="Sprite2D" parent="." unique_id=1489470691]
+position = Vector2(-15595, -1264)
+texture = ExtResource("17_66mtb")
+
+[node name="BlueNebula5" type="Sprite2D" parent="." unique_id=1342476914]
+position = Vector2(-15510, -3521)
+texture = ExtResource("18_d83ya")
+
+[node name="BluePlanet1" type="Sprite2D" parent="." unique_id=846113555]
+position = Vector2(-14655, -1179)
+texture = ExtResource("27_epukl")
+
+[node name="BluePlanet2" type="Sprite2D" parent="." unique_id=1289005027]
+position = Vector2(-16670, -2039)
+texture = ExtResource("28_bg5m0")
+
+[node name="BluePlanet3" type="Sprite2D" parent="." unique_id=2024675970]
+position = Vector2(-14465, -3185)
+texture = ExtResource("29_17bvh")
+
+[node name="StarsGreen1" type="Sprite2D" parent="." unique_id=269556795]
+position = Vector2(-10389, -1265)
+texture = ExtResource("23_qs4hy")
+
+[node name="StarsGreen2" type="Sprite2D" parent="." unique_id=514733761]
+position = Vector2(-9682, -881)
+texture = ExtResource("24_3tq4f")
+
+[node name="StarsGreen3" type="Sprite2D" parent="." unique_id=2022170856]
+position = Vector2(-11022, -2460)
+texture = ExtResource("25_ud6rk")
+
+[node name="GreenNebula1" type="Sprite2D" parent="." unique_id=2084947671]
+position = Vector2(-10394, -1243)
+texture = ExtResource("14_wqbs1")
+
+[node name="GreenNebula2" type="Sprite2D" parent="." unique_id=420545082]
+position = Vector2(-10276, -1649)
+texture = ExtResource("19_0ocgh")
+
+[node name="GreenNebula3" type="Sprite2D" parent="." unique_id=852278683]
+position = Vector2(-11566, -2783)
+texture = ExtResource("20_kcn80")
+
+[node name="GreenNebula4" type="Sprite2D" parent="." unique_id=722157856]
+position = Vector2(-8765, -2214)
+texture = ExtResource("21_vbh6s")
+
+[node name="GreenNebula5" type="Sprite2D" parent="." unique_id=1092567320]
+position = Vector2(-10466, -3352)
+texture = ExtResource("22_7wv1b")
+
+[node name="GreenPlanet1" type="Sprite2D" parent="." unique_id=309504470]
+position = Vector2(-11186, -1074)
+texture = ExtResource("30_5ch40")
+
+[node name="GreenPlanet2" type="Sprite2D" parent="." unique_id=2117291531]
+position = Vector2(-9767, -2258)
+texture = ExtResource("31_hqbdk")
+
+[node name="GreenPlanet3" type="Sprite2D" parent="." unique_id=1221350510]
+position = Vector2(-9598, -495)
+texture = ExtResource("32_mgie7")
+
+[node name="Bg3" type="Sprite2D" parent="." unique_id=770881146]
+position = Vector2(-20480, -1266)
+texture = ExtResource("11_j44qy")
+
+[node name="StarsRed1" type="Sprite2D" parent="." unique_id=1790566089]
+position = Vector2(-20492, -1231)
+texture = ExtResource("34_epukl")
+
+[node name="StarsRed2" type="Sprite2D" parent="." unique_id=1766605197]
+position = Vector2(-20962, -1971)
+texture = ExtResource("35_bg5m0")
+
+[node name="StarsRed3" type="Sprite2D" parent="." unique_id=587522934]
+position = Vector2(-19836, -3206)
+texture = ExtResource("36_17bvh")
+
+[node name="RedNebula1" type="Sprite2D" parent="." unique_id=1298998356]
+position = Vector2(-20549, -1278)
+texture = ExtResource("13_4fddv")
+
+[node name="RedNebula2" type="Sprite2D" parent="." unique_id=706772671]
+position = Vector2(-21350, -2293)
+texture = ExtResource("23_klam7")
+
+[node name="RedNebula3" type="Sprite2D" parent="." unique_id=1539651107]
+position = Vector2(-20432, -1216)
+texture = ExtResource("24_qs4hy")
+
+[node name="RedNebula4" type="Sprite2D" parent="." unique_id=975758847]
+position = Vector2(-20652, -2696)
+texture = ExtResource("25_3tq4f")
+
+[node name="RedNebula5" type="Sprite2D" parent="." unique_id=901007994]
+position = Vector2(-20652, -3424)
+texture = ExtResource("26_ud6rk")
+
+[node name="RedPlanet1" type="Sprite2D" parent="." unique_id=906600102]
+position = Vector2(-21648, -1702)
+texture = ExtResource("33_iykje")
+
+[node name="RedPlanet2" type="Sprite2D" parent="." unique_id=937085817]
+position = Vector2(-19538, -693)
+texture = ExtResource("34_duwi1")
+
+[node name="RedPlanet3" type="Sprite2D" parent="." unique_id=21412947]
+position = Vector2(-19734, -3249)
+texture = ExtResource("35_avh4v")

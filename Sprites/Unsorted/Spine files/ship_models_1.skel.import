@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://c5es41xwhoj35"
+path="res://.godot/imported/ship_models_1.skel-9483c7f2c799726c9719d6dca72d37e6.spskel"
+
+[deps]
+
+source_file="res://Sprites/Unsorted/Spine files/ship_models_1.skel"
+dest_files=["res://.godot/imported/ship_models_1.skel-9483c7f2c799726c9719d6dca72d37e6.spskel"]
+
+[params]
+
