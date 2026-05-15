@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cuspjcfiqubbr"]
+
+[ext_resource type="Script" uid="uid://b6kdl0noybbaa" path="res://Scripts/main_menu.gd" id="1_28flt"]
+
+[node name="MainMenu" type="Control" unique_id=1687114122]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="Buttons" type="Control" parent="." unique_id=666923513]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -202.0
+offset_top = -334.0
+offset_right = 202.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PlayBtn" type="Button" parent="Buttons" unique_id=524864941]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 67.0
+grow_horizontal = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 40
+text = "Play"
+
+[node name="OptionsBtn" type="Button" parent="Buttons" unique_id=672806669]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -31.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 40
+text = "Options
+"
+
+[node name="CreditsBtn" type="Button" parent="Buttons" unique_id=674661463]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -63.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 40
+text = "Credits
+"
+
+[connection signal="button_up" from="Buttons/PlayBtn" to="." method="_on_play_btn_button_up"]
+[connection signal="button_up" from="Buttons/OptionsBtn" to="." method="_on_options_btn_button_up"]
+[connection signal="button_up" from="Buttons/CreditsBtn" to="." method="_on_credits_btn_button_up"]

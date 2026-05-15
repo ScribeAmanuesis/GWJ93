@@ -11,15 +11,19 @@ var target: Player = null
 #NOTE: I think the knockback was too weak because of the speed limit, so I added this flag
 var is_knocked_back := false
 
+var is_alerting := false
+
+signal dying
+
 @export var bullet_scene: PackedScene = preload("res://Scenes/red_enemy_bullet.tscn")
 @export var shoot_cooldown := 2.0
 var can_shoot := true
 @export var bullet_spread := 10
 
-@export var health := 100.0
+@export var health := 30.0
 
 @export var turn_speed := 5
-@export var max_speed := 350
+@export var max_speed := 300
 @export var thrust := 600
 @export var friction := 0.98
 
@@ -81,7 +85,19 @@ func _physics_process(delta: float) -> void:
 						obstacle_avoidance += away_from_obstacle * obstacle_avoid_speed * avoid_strength
 
 	var does_see_player := target != null
+	if does_see_player and !is_alerting:
+		is_alerting = true
 
+		MusicController.enemies_alerted += 1
+		MusicController.update_intensity()
+
+	elif !does_see_player and is_alerting:
+		is_alerting = false
+
+		MusicController.enemies_alerted -= 1
+		MusicController.enemies_alerted = max(MusicController.enemies_alerted, 0)
+
+		MusicController.update_intensity()
 	if does_see_player and !is_knocked_back:
 		var target_rotation := global_position.angle_to_point(target.global_position) + PI / 2
 		rotation = rotate_toward(rotation, target_rotation, turn_speed * delta)
@@ -115,8 +131,8 @@ func shoot() -> void:
 
 	# Right Bullet
 	var bullet_right = bullet_scene.instantiate()
-	bullet_right.global_position = marker_right.global_position
 	bullet_right.direction = Vector2.UP.rotated(rotation + deg_to_rad(bullet_spread))
+	bullet_right.global_position = marker_right.global_position
 
 	# Left Bullet
 	var bullet_left = bullet_scene.instantiate()
@@ -124,9 +140,7 @@ func shoot() -> void:
 	bullet_left.direction = Vector2.UP.rotated(rotation - deg_to_rad(bullet_spread))
 
 	add_sibling(bullet_right)
-	#get_tree().current_scene.add_child(bullet_right
 	add_sibling(bullet_left)
-	#get_tree().current_scene.add_child(bullet_left)
 
 	# Change animation state
 	var cannon_anim_state : = cannon.get_animation_state()
@@ -144,6 +158,11 @@ func damage(amount: float):
 
 func die():
 	#TODO: Die animation and sfx
+	MusicController.enemies_alerted -= 1
+	MusicController.enemies_alerted = max(MusicController.enemies_alerted, 0)
+	MusicController.update_intensity()
+
+	dying.emit()
 	queue_free()
 
 
@@ -156,3 +175,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	is_knocked_back = true
 	await get_tree().create_timer(knockback_time).timeout
 	is_knocked_back = false
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	if is_alerting:
+		MusicController.enemies_alerted -= 1
+		MusicController.enemies_alerted = max(MusicController.enemies_alerted, 0)
+		MusicController.update_intensity()
+	dying.emit()
+	queue_free()

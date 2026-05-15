@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b5j7c0k0cj3go" path="res://Sprites/Unsorted/ship_red_1.png" id="1_ld55o"]
 [ext_resource type="Script" uid="uid://d0fqo52mx4x6n" path="res://Scripts/enemy_red.gd" id="1_mxdow"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://bifko22ytena8" path="res://Sprites/Unsorted/Spine files/rs_model_res.tres" id="2_irdpo"]
-[ext_resource type="Script" path="res://Scripts/ray_cast_2d.gd" id="3_4qy08"]
+[ext_resource type="Script" uid="uid://cujlolipr5cx4" path="res://Scripts/ray_cast_2d.gd" id="3_4qy08"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ld55o"]
 radius = 59.0
@@ -11,7 +11,7 @@ height = 156.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=638474384 groups=["Enemy"]]
 collision_layer = 2
-collision_mask = 9
+collision_mask = 11
 script = ExtResource("1_mxdow")
 
 [node name="Body" type="SpineSprite" parent="." unique_id=1948983119]
@@ -51,4 +51,7 @@ position = Vector2(-48, -59)
 position = Vector2(0, -78)
 polygon = PackedVector2Array(-13, 3, 0, -15, 14, 3)
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1709393442]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

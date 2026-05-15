@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://caf6qe4nd37y3"
+path="res://.godot/imported/GWJ93 - Sketches - Red Extended - B.mp3-9ff86fa1b639eb41de27d06c2cf7e6c6.mp3str"
+
+[deps]
+
+source_file="res://Sfx/Music/Red/GWJ93 - Sketches - Red Extended - B.mp3"
+dest_files=["res://.godot/imported/GWJ93 - Sketches - Red Extended - B.mp3-9ff86fa1b639eb41de27d06c2cf7e6c6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
