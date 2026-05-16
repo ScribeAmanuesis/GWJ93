@@ -1,23 +1,26 @@
 [gd_scene format=3 uid="uid://c0j6ddtmmahdh"]
 
-[ext_resource type="Texture2D" uid="uid://b5j7c0k0cj3go" path="res://Sprites/Unsorted/ship_red_1.png" id="1_ld55o"]
 [ext_resource type="Script" uid="uid://d0fqo52mx4x6n" path="res://Scripts/enemy_red.gd" id="1_mxdow"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://bifko22ytena8" path="res://Sprites/Unsorted/Spine files/rs_model_res.tres" id="2_irdpo"]
-[ext_resource type="Script" path="res://Scripts/ray_cast_2d.gd" id="3_4qy08"]
+[ext_resource type="Script" uid="uid://cujlolipr5cx4" path="res://Scripts/ray_cast_2d.gd" id="3_4qy08"]
+[ext_resource type="AudioStream" uid="uid://d4kq3s7tu700a" path="res://Sfx/red ship shooting single hit.mp3" id="5_n5dbs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ld55o"]
 radius = 59.0
 height = 156.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_n5dbs"]
+radius = 722.00275
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=638474384 groups=["Enemy"]]
 collision_layer = 2
-collision_mask = 9
+collision_mask = 11
 script = ExtResource("1_mxdow")
 
 [node name="Body" type="SpineSprite" parent="." unique_id=1948983119]
 skeleton_data_res = ExtResource("2_irdpo")
 preview_skin = "Default"
-preview_animation = "rs_fly"
+preview_animation = "rs_demo"
 preview_frame = false
 preview_time = 0.0
 
@@ -27,10 +30,6 @@ preview_skin = "Default"
 preview_animation = "rs_cannon_idle"
 preview_frame = false
 preview_time = 0.0
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=687753967]
-visible = false
-texture = ExtResource("1_ld55o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=322904650]
 shape = SubResource("CapsuleShape2D_ld55o")
@@ -51,4 +50,16 @@ position = Vector2(-48, -59)
 position = Vector2(0, -78)
 polygon = PackedVector2Array(-13, 3, 0, -15, 14, 3)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1160043914]
+stream = ExtResource("5_n5dbs")
+volume_db = -20.0
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=959406134]
+collision_layer = 2
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=1578120764]
+shape = SubResource("CircleShape2D_n5dbs")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]

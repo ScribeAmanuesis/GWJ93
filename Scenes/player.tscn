@@ -54,16 +54,16 @@ volume_db = -15.0
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1135710745]
 position = Vector2(1, -69)
 
-[node name="Body" type="SpineSprite" parent="." unique_id=2135192413]
-skeleton_data_res = ExtResource("6_x3wgy")
-preview_skin = "Default"
-preview_animation = "ds_fly"
-preview_frame = false
-preview_time = 0.0
-
 [node name="Cannon" type="SpineSprite" parent="." unique_id=1419783035]
 skeleton_data_res = ExtResource("6_x3wgy")
 preview_skin = "Default"
 preview_animation = "ds_cannon_shot"
+preview_frame = false
+preview_time = 0.0
+
+[node name="Body" type="SpineSprite" parent="." unique_id=2135192413]
+skeleton_data_res = ExtResource("6_x3wgy")
+preview_skin = "Default"
+preview_animation = "ds_fly"
 preview_frame = false
 preview_time = 0.0

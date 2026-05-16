@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://it307ruobgy5" path="res://Scenes/asteroid.tscn" id="2_8od7v"]
 [ext_resource type="PackedScene" uid="uid://c0j6ddtmmahdh" path="res://Scenes/enemy_red.tscn" id="2_qc4db"]
 [ext_resource type="PackedScene" uid="uid://d35lhfg2uftty" path="res://Scenes/enemy_blue.tscn" id="3_35xla"]
-[ext_resource type="Script" path="res://Scripts/camera_2d.gd" id="4_ys1qc"]
+[ext_resource type="Script" uid="uid://cxk8souejlbob" path="res://Scripts/camera_2d.gd" id="4_ys1qc"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://qm1fr237yml8" path="res://Sprites/Unsorted/Spine files/ds_model_res.tres" id="6_i3aeo"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://dasp346ogkhdi" path="res://Sprites/Unsorted/Spine files/bs_model_res.tres" id="7_yb21e"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://jhl0jc83452w" path="res://Sprites/Unsorted/Spine files/gs_model_res.tres" id="8_qpfo2"]
@@ -70,13 +70,15 @@ frequency = 0.045
 [node name="Entities" type="Node2D" parent="." unique_id=1950387884]
 
 [node name="CharacterBody2D" parent="Entities" unique_id=71516756 instance=ExtResource("1_lc1oi")]
+health = 999999.0
 movement_mode = 1
 
 [node name="CharacterBody2D2" parent="Entities" unique_id=638474384 instance=ExtResource("2_qc4db")]
-position = Vector2(502, -824)
+position = Vector2(1783, -1289)
 
 [node name="CharacterBody2D3" parent="Entities" unique_id=800915021 instance=ExtResource("3_35xla")]
-position = Vector2(572, -1768)
+position = Vector2(-910, -1527)
+health = 10.0
 
 [node name="Asteroids" type="Node2D" parent="." unique_id=881327917]
 

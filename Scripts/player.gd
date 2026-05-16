@@ -40,15 +40,36 @@ func _ready() -> void:
 	cannon_anim_state.add_animation("ds_cannon_idle", 0.0, true)
 
 func _physics_process(delta: float) -> void:
-	#if movement_mode == MovementMode.WASD:
-		#move_wasd()
-	#elif movement_mode == MovementMode.ASTEROIDS:
+
 	move_asteroids(delta)
+
 	if Input.is_action_pressed("ui_accept"):
 		shoot()
 
 	move_and_slide()
 
+	var camera := get_viewport().get_camera_2d()
+
+	if camera:
+
+		var screen_size := get_viewport_rect().size / camera.zoom
+
+		var half_width := screen_size.x * 0.5
+		var half_height := screen_size.y * 0.5
+
+		var margin := 32.0
+
+		global_position.x = clamp(
+			global_position.x,
+			camera.global_position.x - half_width + margin,
+			camera.global_position.x + half_width - margin
+		)
+
+		global_position.y = clamp(
+			global_position.y,
+			camera.global_position.y - half_height + margin,
+			camera.global_position.y + half_height - margin
+		)
 func shoot():
 	if !can_shoot:
 		return

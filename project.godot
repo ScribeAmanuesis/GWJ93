@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="GWJ93"
-run/main_scene="uid://dqg8oetkqnc2p"
+run/main_scene="uid://cuspjcfiqubbr"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://cxxt1esv57ywq"
+MusicController="*uid://c6ys5xs6hx6rx"
 
 [global_group]
 
