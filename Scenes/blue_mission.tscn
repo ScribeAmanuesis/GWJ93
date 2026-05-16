@@ -17,67 +17,67 @@
 [ext_resource type="Script" uid="uid://cxk8souejlbob" path="res://Scripts/camera_2d.gd" id="15_fgnwg"]
 [ext_resource type="PackedScene" uid="uid://it307ruobgy5" path="res://Scenes/asteroid.tscn" id="16_o4nuk"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_jk0d6"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_74fxw"]
 noise_type = 3
 seed = 1
 frequency = 0.0055
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_74pmd"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rlmyq"]
 noise_type = 3
 seed = 1
 frequency = 0.0055
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_eyjen"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h61wj"]
 noise_type = 3
 seed = 6
 frequency = 0.045
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_c4212"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_04prp"]
 noise_type = 3
 seed = 1
 frequency = 0.0161
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_3qks2"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_x1ft5"]
 noise_type = 3
 seed = 1
 frequency = 0.0027
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_7nx8r"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ffit2"]
 noise_type = 3
 seed = 1
 frequency = 0.0055
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_cyue5"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v2obp"]
 noise_type = 3
 seed = 1
 frequency = 0.0055
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_63365"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jffwv"]
 noise_type = 3
 seed = 1
 frequency = 0.0055
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ajqow"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_dh80p"]
 noise_type = 3
 seed = 6
 frequency = 0.045
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_8cwxx"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i4e3n"]
 noise_type = 3
 seed = 1
 frequency = 0.0161
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_4t7vl"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_73cfg"]
 noise_type = 3
 seed = 1
 frequency = 0.0027
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_rles8"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7h3x4"]
 noise_type = 3
 seed = 1
 frequency = 0.0027
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_jmesp"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wm0e7"]
 noise_type = 3
 seed = 1
 frequency = 0.0055
@@ -188,7 +188,7 @@ gravity_scale = 8.0
 angular_velocity = 0.034906585
 radius = 300
 variance_range = 200
-noise = SubResource("FastNoiseLite_jk0d6")
+noise = SubResource("FastNoiseLite_74fxw")
 
 [node name="Asteroid2" parent="Asteroids" unique_id=1870661153 instance=ExtResource("16_o4nuk")]
 position = Vector2(1291, -110)
@@ -197,7 +197,7 @@ gravity_scale = 8.0
 radius = 300
 line_width = 0.053
 variance_range = 432
-noise = SubResource("FastNoiseLite_74pmd")
+noise = SubResource("FastNoiseLite_rlmyq")
 
 [node name="Asteroid3" parent="Asteroids" unique_id=804448772 instance=ExtResource("16_o4nuk")]
 position = Vector2(-1548, -1164)
@@ -207,7 +207,7 @@ angular_velocity = 0.13962634
 radius = 800
 line_width = 0.055
 variance_range = 202
-noise = SubResource("FastNoiseLite_eyjen")
+noise = SubResource("FastNoiseLite_h61wj")
 
 [node name="Asteroid4" parent="Asteroids" unique_id=1641175095 instance=ExtResource("16_o4nuk")]
 position = Vector2(1498, -2084)
@@ -215,7 +215,7 @@ mass = 1000.0
 gravity_scale = 8.0
 radius = 600
 variance_range = 300
-noise = SubResource("FastNoiseLite_c4212")
+noise = SubResource("FastNoiseLite_04prp")
 
 [node name="Asteroid5" parent="Asteroids" unique_id=1759991491 instance=ExtResource("16_o4nuk")]
 position = Vector2(461, -2625)
@@ -224,7 +224,7 @@ gravity_scale = 8.0
 radius = 300
 line_width = 0.053
 variance_range = 432
-noise = SubResource("FastNoiseLite_3qks2")
+noise = SubResource("FastNoiseLite_x1ft5")
 
 [node name="Asteroid6" parent="Asteroids" unique_id=956982288 instance=ExtResource("16_o4nuk")]
 position = Vector2(-1458, -3244)
@@ -233,7 +233,7 @@ gravity_scale = 8.0
 radius = 300
 line_width = 0.053
 variance_range = 432
-noise = SubResource("FastNoiseLite_7nx8r")
+noise = SubResource("FastNoiseLite_ffit2")
 
 [node name="Asteroid7" parent="Asteroids" unique_id=1724962342 instance=ExtResource("16_o4nuk")]
 position = Vector2(119, -3613)
@@ -242,7 +242,7 @@ gravity_scale = 8.0
 radius = 300
 line_width = 0.053
 variance_range = 432
-noise = SubResource("FastNoiseLite_cyue5")
+noise = SubResource("FastNoiseLite_v2obp")
 
 [node name="Asteroid8" parent="Asteroids" unique_id=1202649169 instance=ExtResource("16_o4nuk")]
 position = Vector2(1500, -4675)
@@ -251,7 +251,7 @@ gravity_scale = 8.0
 angular_velocity = 0.034906585
 radius = 300
 variance_range = 200
-noise = SubResource("FastNoiseLite_63365")
+noise = SubResource("FastNoiseLite_jffwv")
 
 [node name="Asteroid9" parent="Asteroids" unique_id=1831878004 instance=ExtResource("16_o4nuk")]
 position = Vector2(-977, -5590)
@@ -261,7 +261,7 @@ angular_velocity = 0.13962634
 radius = 800
 line_width = 0.055
 variance_range = 202
-noise = SubResource("FastNoiseLite_ajqow")
+noise = SubResource("FastNoiseLite_dh80p")
 
 [node name="Asteroid10" parent="Asteroids" unique_id=1258257573 instance=ExtResource("16_o4nuk")]
 position = Vector2(2069, -6510)
@@ -269,7 +269,7 @@ mass = 1000.0
 gravity_scale = 8.0
 radius = 600
 variance_range = 300
-noise = SubResource("FastNoiseLite_8cwxx")
+noise = SubResource("FastNoiseLite_i4e3n")
 
 [node name="Asteroid11" parent="Asteroids" unique_id=20402250 instance=ExtResource("16_o4nuk")]
 position = Vector2(1032, -7051)
@@ -278,7 +278,7 @@ gravity_scale = 8.0
 radius = 300
 line_width = 0.053
 variance_range = 432
-noise = SubResource("FastNoiseLite_4t7vl")
+noise = SubResource("FastNoiseLite_73cfg")
 
 [node name="Asteroid12" parent="Asteroids" unique_id=42982549 instance=ExtResource("16_o4nuk")]
 position = Vector2(-362, -7270)
@@ -287,7 +287,7 @@ gravity_scale = 8.0
 radius = 300
 line_width = 0.053
 variance_range = 432
-noise = SubResource("FastNoiseLite_rles8")
+noise = SubResource("FastNoiseLite_7h3x4")
 
 [node name="Asteroid13" parent="Asteroids" unique_id=773043498 instance=ExtResource("16_o4nuk")]
 position = Vector2(-2281, -7889)
@@ -296,4 +296,4 @@ gravity_scale = 8.0
 radius = 300
 line_width = 0.053
 variance_range = 432
-noise = SubResource("FastNoiseLite_jmesp")
+noise = SubResource("FastNoiseLite_wm0e7")

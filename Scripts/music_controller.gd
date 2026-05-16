@@ -5,13 +5,22 @@ var intensity := 0.0
 
 var target_intensity := 0.0
 
-var red_layer1 = preload("res://Sfx/Music/Red/GWJ93 - Sketches - Red Extended - A.mp3")
-var red_layer2 = preload("res://Sfx/Music/Red/GWJ93 - Sketches - Red Extended - B.mp3")
-var red_layer3 = preload("res://Sfx/Music/Red/GWJ93 - Sketches - Red Extended - C.mp3")
+var red_layers: Array[AudioStream] = [
+	preload("res://Sfx/Music/Red/GWJ93 - Sketches - Red Extended - A.mp3"),
+	preload("res://Sfx/Music/Red/GWJ93 - Sketches - Red Extended - B.mp3"),
+	preload("res://Sfx/Music/Red/GWJ93 - Sketches - Red Extended - C.mp3")
+]
+var green_layers: Array[AudioStream] = [
+	preload("res://Sfx/Music/Green/GWJ93 - Sketches - Green Extended - A.mp3"),
+	preload("res://Sfx/Music/Green/GWJ93 - Sketches - Green Extended - B.mp3"),
+	preload("res://Sfx/Music/Green/GWJ93 - Sketches - Green Extended - C.mp3")
+]
 
-var blue_layer1 = preload("res://Sfx/Music/Blue/GWJ93 - Sketches - Blue Extended - A.mp3")
-var blue_layer2 = preload("res://Sfx/Music/Blue/GWJ93 - Sketches - Blue Extended - B.mp3")
-var blue_layer3 = preload("res://Sfx/Music/Blue/GWJ93 - Sketches - Blue Extended - C.mp3")
+var blue_layers: Array[AudioStream] = [
+	preload("res://Sfx/Music/Blue/GWJ93 - Sketches - Blue Extended - A.mp3"),
+	preload("res://Sfx/Music/Blue/GWJ93 - Sketches - Blue Extended - B.mp3"),
+	preload("res://Sfx/Music/Blue/GWJ93 - Sketches - Blue Extended - C.mp3")
+]
 
 @export var master_volume := -18.0
 
@@ -34,13 +43,19 @@ func stop():
 	
 func play_music(mission: int):
 	if mission == 1:
-		layer1.stream = red_layer1
-		layer2.stream = red_layer2
-		layer3.stream = red_layer3
+		layer1.stream = red_layers[0]
+		layer2.stream = red_layers[1]
+		layer3.stream = red_layers[2]
+
 	elif mission == 2:
-		layer1.stream = blue_layer1
-		layer2.stream = blue_layer2
-		layer3.stream = blue_layer3
+		layer1.stream = blue_layers[0]
+		layer2.stream = blue_layers[1]
+		layer3.stream = blue_layers[2]
+
+	elif mission == 3:
+		layer1.stream = green_layers[0]
+		layer2.stream = green_layers[1]
+		layer3.stream = green_layers[2]
 	if !layer1.playing:
 		layer1.play()
 

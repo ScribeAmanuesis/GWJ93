@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf242"]
 size = Vector2(38, 124)
 
-[node name="Area2D" type="Area2D" unique_id=71135653]
+[node name="Area2D" type="Area2D" unique_id=71135653 groups=["Bullet"]]
+z_index = 10
+collision_layer = 4
 script = ExtResource("1_tym7s")
 metadata/_edit_horizontal_guides_ = [-68.0, 64.0]
 
