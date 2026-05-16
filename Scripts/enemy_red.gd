@@ -137,6 +137,8 @@ func _physics_process(delta: float) -> void:
 			var blended = (desired_velocity + avoid).normalized() * max_speed * speed_scale
 			velocity = velocity.move_toward(blended, thrust * delta)
 		else:
+			var body_anim_state : = body.get_animation_state()
+			body_anim_state.add_animation("rs_fly")
 			velocity = velocity.move_toward(desired_velocity, thrust * delta)
 
 		if suspicion_time <= 0 and velocity.length() < 10.0:
@@ -196,6 +198,10 @@ func damage(amount: float):
 	health -= amount
 	if health <= 0:
 		die()
+		return
+	var body_anim_state = body.get_animation_state()
+	body_anim_state.set_animation("rs_damaged", false)
+	body_anim_state.add_animation("rs_fly",0.3 ,true)
 
 func die():
 	if is_dead:

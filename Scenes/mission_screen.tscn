@@ -2,6 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://bg1yxr5ruhymm" path="res://Sprites/Unsorted/UI/frame_base.png" id="1_4wesc"]
 [ext_resource type="Script" uid="uid://jcpnpy6o8oo" path="res://Scripts/mission_screen.gd" id="1_h1ott"]
+[ext_resource type="Texture2D" uid="uid://dw7xlbm1kqikr" path="res://Sprites/Unsorted/UI/menu_bg.png" id="2_yow6n"]
+[ext_resource type="Texture2D" uid="uid://bdo5iket5bg8q" path="res://Sprites/Unsorted/UI/frame_red.png" id="3_paamu"]
+[ext_resource type="Texture2D" uid="uid://qsjiter2dou8" path="res://Sprites/Unsorted/UI/frame_blue.png" id="4_xvckx"]
+[ext_resource type="Texture2D" uid="uid://c5l7etg8rmm7t" path="res://Sprites/Unsorted/UI/frame_green.png" id="5_m8mov"]
 
 [node name="Control" type="Control" unique_id=1767523681]
 layout_mode = 3
@@ -11,7 +15,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h1ott")
-metadata/_edit_vertical_guides_ = [467.0]
+metadata/_edit_vertical_guides_ = [339.0, 109.0]
+metadata/_edit_horizontal_guides_ = [541.0, 477.0]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=668245193]
+position = Vector2(576.5294, 324.00003)
+scale = Vector2(0.95294124, 0.9529412)
+texture = ExtResource("2_yow6n")
 
 [node name="Missions" type="Control" parent="." unique_id=687289804]
 layout_mode = 1
@@ -45,9 +55,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Missions/Red/Panel" unique_id=1734099896]
-modulate = Color(0.94509804, 0.011764706, 0.023529412, 1)
 layout_mode = 2
-texture = ExtResource("1_4wesc")
+texture = ExtResource("3_paamu")
 region_rect = Rect2(0, 0, 102, 102)
 patch_margin_left = 32
 patch_margin_top = 32
@@ -151,8 +160,9 @@ text = "Reward:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonRed" type="Button" parent="Missions/Red" unique_id=1319701174]
-layout_mode = 0
+[node name="ButtonRed" type="TextureButton" parent="Missions/Red" unique_id=249382751]
+layout_mode = 1
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -160,11 +170,31 @@ anchor_bottom = 1.0
 offset_left = -115.0
 offset_top = 15.0
 offset_right = 115.0
-offset_bottom = 61.0
+offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Missions/Red/ButtonRed" unique_id=1796407010]
+layout_mode = 0
+offset_right = 231.0
+offset_bottom = 64.0
+texture = ExtResource("3_paamu")
+region_rect = Rect2(0, 0, 102, 102)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="Label" type="Label" parent="Missions/Red/ButtonRed" unique_id=709299053]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 221.0
+offset_bottom = 53.0
 text = "Embark"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Blue" type="Control" parent="Missions" unique_id=1570841791]
 layout_mode = 1
@@ -189,16 +219,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Missions/Blue/Panel" unique_id=560502500]
-modulate = Color(0.047058824, 0.05882353, 1, 1)
 layout_mode = 2
-texture = ExtResource("1_4wesc")
+texture = ExtResource("4_xvckx")
 region_rect = Rect2(0, 0, 102, 102)
 patch_margin_left = 32
 patch_margin_top = 32
 patch_margin_right = 32
 patch_margin_bottom = 32
 
-[node name="ButtonBlue" type="Button" parent="Missions/Blue" unique_id=1104599083]
+[node name="ButtonBlue" type="TextureButton" parent="Missions/Blue" unique_id=892220220]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -208,11 +237,31 @@ anchor_bottom = 1.0
 offset_left = -115.0
 offset_top = 15.0
 offset_right = 115.0
-offset_bottom = 61.0
+offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Missions/Blue/ButtonBlue" unique_id=1539686282]
+layout_mode = 0
+offset_right = 231.0
+offset_bottom = 64.0
+texture = ExtResource("4_xvckx")
+region_rect = Rect2(0, 0, 102, 102)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="Label" type="Label" parent="Missions/Blue/ButtonBlue" unique_id=157110745]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 221.0
+offset_bottom = 53.0
 text = "Embark"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Missions/Blue" unique_id=1842613276]
 layout_mode = 1
@@ -342,16 +391,15 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Missions/Green/Panel" unique_id=2047788648]
-modulate = Color(0.1254902, 0.85490197, 0.08627451, 1)
 layout_mode = 2
-texture = ExtResource("1_4wesc")
+texture = ExtResource("5_m8mov")
 region_rect = Rect2(0, 0, 102, 102)
 patch_margin_left = 32
 patch_margin_top = 32
 patch_margin_right = 32
 patch_margin_bottom = 32
 
-[node name="ButtonGreen" type="Button" parent="Missions/Green" unique_id=1114752081]
+[node name="ButtonGreen" type="TextureButton" parent="Missions/Green" unique_id=965236010]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -361,11 +409,31 @@ anchor_bottom = 1.0
 offset_left = -115.0
 offset_top = 15.0
 offset_right = 115.0
-offset_bottom = 61.0
+offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Missions/Green/ButtonGreen" unique_id=1147546378]
+layout_mode = 0
+offset_right = 231.0
+offset_bottom = 64.0
+texture = ExtResource("5_m8mov")
+region_rect = Rect2(0, 0, 102, 102)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="Label" type="Label" parent="Missions/Green/ButtonGreen" unique_id=1331048654]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 221.0
+offset_bottom = 53.0
 text = "Embark"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="Missions/Green" unique_id=728535685]
 layout_mode = 1
@@ -472,7 +540,7 @@ text = "Reward:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonShop" type="Button" parent="." unique_id=356771721]
+[node name="ButtonShop" type="TextureButton" parent="." unique_id=1361116911]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -482,11 +550,31 @@ anchor_bottom = 1.0
 offset_left = -109.0
 offset_top = -73.0
 offset_right = 121.0
-offset_bottom = -27.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ButtonShop" unique_id=913956481]
+layout_mode = 0
+offset_right = 231.0
+offset_bottom = 64.0
+texture = ExtResource("1_4wesc")
+region_rect = Rect2(0, 0, 102, 102)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="Label" type="Label" parent="ButtonShop" unique_id=1855525073]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 11.0
+offset_right = 221.0
+offset_bottom = 53.0
 text = "Shop"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=1411402569]
 layout_mode = 1

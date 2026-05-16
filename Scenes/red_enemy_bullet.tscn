@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://b54g0vgo5f5dh"]
 
-[ext_resource type="Texture2D" uid="uid://6doqh7b10ivf" path="res://icon.svg" id="1_eunmp"]
 [ext_resource type="Script" uid="uid://c5i8htey358n2" path="res://Scripts/red_enemy_bullet.gd" id="1_xtkkh"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://c587a2j005y6a" path="res://Sprites/Unsorted/Spine files/bullet_effects_res.res" id="3_5rc6e"]
 
@@ -12,12 +11,6 @@ z_index = 10
 collision_layer = 4
 collision_mask = 17
 script = ExtResource("1_xtkkh")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1149401367]
-visible = false
-position = Vector2(-1.1920929e-07, 0)
-scale = Vector2(0.23437499, 0.21875)
-texture = ExtResource("1_eunmp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=990869971]
 shape = SubResource("CircleShape2D_eunmp")

@@ -196,6 +196,8 @@ func _physics_process(delta: float) -> void:
 		)
 
 func damage(amount: float):
+	var body_anim_state = body.get_animation_state()
+	body_anim_state.set_animation("bs_damaged")
 	health -= amount
 	if health <= 0:
 		die()
