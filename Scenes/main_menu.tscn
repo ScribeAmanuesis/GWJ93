@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://cuspjcfiqubbr"]
 
 [ext_resource type="Script" uid="uid://b6kdl0noybbaa" path="res://Scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://bft5isqmbpxgn" path="res://Sprites/Unsorted/UI/button_red.png" id="2_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://dw7xlbm1kqikr" path="res://Sprites/Unsorted/UI/menu_bg.png" id="2_opfnp"]
+[ext_resource type="Texture2D" uid="uid://dtiuc6kyekgxd" path="res://Sprites/Unsorted/UI/button_blue.png" id="3_n45e2"]
+[ext_resource type="FontFile" uid="uid://dbwg3023ga7k1" path="res://Font/Laconic_Regular.otf" id="4_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://do5ug40egoyav" path="res://Sprites/Unsorted/UI/button_green.png" id="4_opfnp"]
 
 [node name="MainMenu" type="Control" unique_id=1687114122]
 layout_mode = 3
@@ -10,6 +15,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_28flt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=985521375]
+position = Vector2(576.5294, 324)
+scale = Vector2(0.9529412, 0.9529412)
+texture = ExtResource("2_opfnp")
 
 [node name="Buttons" type="Control" parent="." unique_id=666923513]
 layout_mode = 1
@@ -25,17 +35,37 @@ offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="PlayBtn" type="Button" parent="Buttons" unique_id=524864941]
+[node name="PlayBtn" type="TextureButton" parent="Buttons" unique_id=1491359212]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 67.0
 grow_horizontal = 2
 focus_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Buttons/PlayBtn" unique_id=2088638268]
+layout_mode = 0
+offset_right = 404.0
+offset_bottom = 64.0
+texture = ExtResource("2_ce3w2")
+region_rect = Rect2(0, 0, 102, 102)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="Label" type="Label" parent="Buttons/PlayBtn" unique_id=136927069]
+layout_mode = 0
+offset_right = 404.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.6313726, 0.007843138, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("4_cp0ys")
 theme_override_font_sizes/font_size = 40
 text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="OptionsBtn" type="Button" parent="Buttons" unique_id=672806669]
+[node name="OptionsBtn" type="TextureButton" parent="Buttons" unique_id=515702265]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -46,11 +76,30 @@ offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme_override_font_sizes/font_size = 40
-text = "Options
-"
 
-[node name="CreditsBtn" type="Button" parent="Buttons" unique_id=674661463]
+[node name="NinePatchRect" type="NinePatchRect" parent="Buttons/OptionsBtn" unique_id=21358456]
+layout_mode = 0
+offset_right = 404.0
+offset_bottom = 64.0
+texture = ExtResource("3_n45e2")
+region_rect = Rect2(0, 0, 102, 102)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="Label" type="Label" parent="Buttons/OptionsBtn" unique_id=1971097677]
+layout_mode = 0
+offset_right = 404.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.1764706, 0.14509805, 0.5176471, 1)
+theme_override_fonts/font = ExtResource("4_cp0ys")
+theme_override_font_sizes/font_size = 40
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsBtn" type="TextureButton" parent="Buttons" unique_id=631987692]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -60,9 +109,28 @@ offset_top = -63.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Buttons/CreditsBtn" unique_id=1703891740]
+layout_mode = 0
+offset_right = 404.0
+offset_bottom = 64.0
+texture = ExtResource("4_opfnp")
+region_rect = Rect2(0, 0, 102, 102)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="Label" type="Label" parent="Buttons/CreditsBtn" unique_id=1143569563]
+layout_mode = 0
+offset_right = 404.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0.3019608, 0.14117648, 1)
+theme_override_fonts/font = ExtResource("4_cp0ys")
 theme_override_font_sizes/font_size = 40
-text = "Credits
-"
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="button_up" from="Buttons/PlayBtn" to="." method="_on_play_btn_button_up"]
 [connection signal="button_up" from="Buttons/OptionsBtn" to="." method="_on_options_btn_button_up"]

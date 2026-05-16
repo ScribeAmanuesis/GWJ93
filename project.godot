@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 Global="*uid://cxxt1esv57ywq"
 MusicController="*uid://c6ys5xs6hx6rx"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [global_group]
 
 Enemy=""

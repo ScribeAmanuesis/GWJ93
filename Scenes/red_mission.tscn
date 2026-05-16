@@ -85,7 +85,9 @@ frequency = 0.0055
 [node name="Node2D" type="Node2D" unique_id=1958209976]
 script = ExtResource("1_u2yyd")
 spawn_offset_y = -2000.0
-min_distance_between_entities = 900.0
+min_distance_from_player = 600.0
+min_distance_between_entities = 1000.0
+wave_delay = 5.0
 metadata/_edit_horizontal_guides_ = [-807.0]
 
 [node name="BG" type="Node2D" parent="." unique_id=1679203054]

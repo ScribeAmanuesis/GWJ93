@@ -60,7 +60,7 @@ func _on_button_red_button_up() -> void:
 
 
 func _on_button_blue_button_up() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/blue_mission.tscn")
 
 
 func _on_button_green_button_up() -> void:

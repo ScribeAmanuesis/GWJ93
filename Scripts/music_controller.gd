@@ -5,11 +5,20 @@ var intensity := 0.0
 
 var target_intensity := 0.0
 
+var red_layer1 = preload("res://Sfx/Music/Red/GWJ93 - Sketches - Red Extended - A.mp3")
+var red_layer2 = preload("res://Sfx/Music/Red/GWJ93 - Sketches - Red Extended - B.mp3")
+var red_layer3 = preload("res://Sfx/Music/Red/GWJ93 - Sketches - Red Extended - C.mp3")
+
+var blue_layer1 = preload("res://Sfx/Music/Blue/GWJ93 - Sketches - Blue Extended - A.mp3")
+var blue_layer2 = preload("res://Sfx/Music/Blue/GWJ93 - Sketches - Blue Extended - B.mp3")
+var blue_layer3 = preload("res://Sfx/Music/Blue/GWJ93 - Sketches - Blue Extended - C.mp3")
+
 @export var master_volume := -18.0
 
 @onready var layer1: AudioStreamPlayer = $Layer1
 @onready var layer2: AudioStreamPlayer = $Layer2
 @onready var layer3: AudioStreamPlayer = $Layer3
+
 
 var enemies_alerted := 0
 
@@ -23,8 +32,15 @@ func stop():
 	target_intensity = 0.0
 	enemies_alerted = 0
 	
-func play_music():
-
+func play_music(mission: int):
+	if mission == 1:
+		layer1.stream = red_layer1
+		layer2.stream = red_layer2
+		layer3.stream = red_layer3
+	elif mission == 2:
+		layer1.stream = blue_layer1
+		layer2.stream = blue_layer2
+		layer3.stream = blue_layer3
 	if !layer1.playing:
 		layer1.play()
 
