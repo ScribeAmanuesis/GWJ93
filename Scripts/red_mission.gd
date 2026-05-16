@@ -31,8 +31,10 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	start_next_wave()
 
-
-
+func _process(delta: float) -> void:
+	#if Input.is_action_just_pressed("ui_accept"):
+		#level_complete()
+	pass
 
 func start_next_wave() -> void:
 	if current_wave >= wave_count:
@@ -119,4 +121,6 @@ func get_spawn_position() -> Vector2:
 
 func level_complete() -> void:
 	print("Level complete!")
+	Global.level[0] += 1
 	# TODO: Transition to the next level / victory screen
+	get_tree().change_scene_to_file("res://Scenes/mission_screen.tscn")

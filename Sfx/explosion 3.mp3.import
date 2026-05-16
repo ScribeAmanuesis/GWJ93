@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgrjmlbq2j4to"
+path="res://.godot/imported/explosion 3.mp3-dfa0762f33eeb330da1441e821feac94.mp3str"
+
+[deps]
+
+source_file="res://Sfx/explosion 3.mp3"
+dest_files=["res://.godot/imported/explosion 3.mp3-dfa0762f33eeb330da1441e821feac94.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

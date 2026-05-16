@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3wly6j5p63mk"
+path="res://.godot/imported/Blue Ship Attack.mp3-7dd446231023cb48c415d72984bee809.mp3str"
+
+[deps]
+
+source_file="res://Sfx/Blue Ship Attack.mp3"
+dest_files=["res://.godot/imported/Blue Ship Attack.mp3-7dd446231023cb48c415d72984bee809.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -94,6 +94,7 @@ metadata/_edit_horizontal_guides_ = [-807.0]
 scroll_scale = Vector2(0.3, 0.3)
 repeat_size = Vector2(2000, 700)
 repeat_times = 3
+metadata/_edit_lock_ = true
 
 [node name="Bg3" type="Sprite2D" parent="BG/BG" unique_id=33382136]
 position = Vector2(598, 314)
@@ -103,6 +104,7 @@ texture = ExtResource("1_1dxvd")
 scroll_scale = Vector2(0.4, 0.4)
 repeat_size = Vector2(200, 200)
 repeat_times = 2
+metadata/_edit_lock_ = true
 
 [node name="StarsRed1" type="Sprite2D" parent="BG/Stars" unique_id=1100259622]
 position = Vector2(584, 321)
@@ -120,6 +122,7 @@ texture = ExtResource("4_u2yyd")
 scroll_scale = Vector2(0.5, 0.5)
 repeat_size = Vector2(5000, 1000)
 repeat_times = 3
+metadata/_edit_lock_ = true
 
 [node name="RedNebula1" type="Sprite2D" parent="BG/Nebula" unique_id=1500509557]
 modulate = Color(1, 1, 1, 0.5764706)
@@ -147,9 +150,11 @@ position = Vector2(2378, 190)
 texture = ExtResource("9_wie2h")
 
 [node name="Planets" type="Parallax2D" parent="BG" unique_id=1538079905]
+visible = false
 scroll_scale = Vector2(0.6, 0.6)
 repeat_size = Vector2(0, 1000)
 repeat_times = 3
+metadata/_edit_lock_ = true
 
 [node name="RedPlanet1" type="Sprite2D" parent="BG/Planets" unique_id=75221530]
 position = Vector2(1755, 268)

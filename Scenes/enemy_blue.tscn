@@ -2,11 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://44mfdsvqqrwh" path="res://Sprites/Unsorted/ship_blue_1.png" id="1_0eo2a"]
 [ext_resource type="Script" uid="uid://bdwhaujpuoyid" path="res://Scripts/enemy_blue.gd" id="1_01tjr"]
-[ext_resource type="Script" path="res://Scripts/ray_cast_2d.gd" id="3_el3ep"]
+[ext_resource type="Script" uid="uid://cujlolipr5cx4" path="res://Scripts/ray_cast_2d.gd" id="3_el3ep"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://dasp346ogkhdi" path="res://Sprites/Unsorted/Spine files/bs_model_res.tres" id="4_xnyxp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_01tjr"]
 radius = 89.005615
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xnyxp"]
+radius = 770.3402
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=800915021 groups=["Enemy"]]
 collision_layer = 2
@@ -38,6 +41,17 @@ preview_time = 0.0
 [node name="Cannon" type="SpineSprite" parent="." unique_id=8588930]
 skeleton_data_res = ExtResource("4_xnyxp")
 preview_skin = "Default"
-preview_animation = "bs_cannon_idle"
+preview_animation = "bs_cannon_shot"
 preview_frame = false
 preview_time = 0.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=661342965]
+volume_db = -20.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=730926971]
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1884327448]
+shape = SubResource("CircleShape2D_xnyxp")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -5,7 +5,7 @@ var intensity := 0.0
 
 var target_intensity := 0.0
 
-@export var master_volume := -15.0
+@export var master_volume := -18.0
 
 @onready var layer1: AudioStreamPlayer = $Layer1
 @onready var layer2: AudioStreamPlayer = $Layer2
@@ -58,10 +58,29 @@ func update_intensity():
 func update_mix(force := false, delta := 0.0):
 
 	var l1 = 0.8
-
 	var l2 = smoothstep(0.2, 0.6, intensity)
-
 	var l3 = smoothstep(0.6, 1.0, intensity)
+
+	# soma total de energia ativa
+	var sum = l1 + l2 + l3
+
+	# evita explosão quando tudo toca junto
+	if sum < 0.001:
+		sum = 0.001
+
+	# normaliza energia total (ESSENCIAL)
+	l1 /= sum
+	l2 /= sum
+	l3 /= sum
+
+	# opcional: “peso musical” pra layer1 continuar dominante
+	l1 *= 1.2
+
+	# clamp final pra não quebrar
+	var total2 = l1 + l2 + l3
+	l1 /= total2
+	l2 /= total2
+	l3 /= total2
 
 	var target1 = linear_to_db(max(l1, 0.001)) + master_volume
 	var target2 = linear_to_db(max(l2, 0.001)) + master_volume
@@ -72,6 +91,6 @@ func update_mix(force := false, delta := 0.0):
 		layer2.volume_db = target2
 		layer3.volume_db = target3
 	else:
-		layer1.volume_db = lerpf(layer1.volume_db, target1, delta * 2.0)
-		layer2.volume_db = lerpf(layer2.volume_db, target2, delta * 2.0)
-		layer3.volume_db = lerpf(layer3.volume_db, target3, delta * 2.0)
+		layer1.volume_db = move_toward(layer1.volume_db, target1, delta * 30.0)
+		layer2.volume_db = move_toward(layer2.volume_db, target2, delta * 30.0)
+		layer3.volume_db = move_toward(layer3.volume_db, target3, delta * 30.0)
