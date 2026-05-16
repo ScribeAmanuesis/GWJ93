@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://4ofp3you7cmi"]
+
+[ext_resource type="Script" uid="uid://dw0547hc5sc6y" path="res://Scripts/green_laser.gd" id="1_tym7s"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://c587a2j005y6a" path="res://Sprites/Unsorted/Spine files/bullet_effects_res.res" id="2_yjn6f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf242"]
+size = Vector2(38, 124)
+
+[node name="Area2D" type="Area2D" unique_id=71135653]
+script = ExtResource("1_tym7s")
+metadata/_edit_horizontal_guides_ = [-68.0, 64.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=310809996]
+shape = SubResource("RectangleShape2D_yf242")
+
+[node name="SpineSprite" type="SpineSprite" parent="." unique_id=1536020991]
+skeleton_data_res = ExtResource("2_yjn6f")
+preview_skin = "Default"
+preview_animation = "gs_laserbeam"
+preview_frame = false
+preview_time = 0.0

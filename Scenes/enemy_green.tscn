@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://codn3xrubxv3e"]
+
+[ext_resource type="SpineSkeletonDataResource" uid="uid://jhl0jc83452w" path="res://Sprites/Unsorted/Spine files/gs_model_res.tres" id="1_mkiw8"]
+[ext_resource type="Script" uid="uid://bb23jtqbtgjro" path="res://Scripts/enemy_green.gd" id="1_ptppe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptppe"]
+size = Vector2(146, 142)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=352034956]
+script = ExtResource("1_ptppe")
+
+[node name="Body" type="SpineSprite" parent="." unique_id=2059018192]
+skeleton_data_res = ExtResource("1_mkiw8")
+preview_skin = "Default"
+preview_animation = "gs_idle"
+preview_frame = false
+preview_time = 0.0
+
+[node name="Cannon" type="SpineSprite" parent="." unique_id=324580532]
+skeleton_data_res = ExtResource("1_mkiw8")
+preview_skin = "Default"
+preview_animation = "gs_cannon_shot"
+preview_frame = false
+preview_time = 0.0
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1708415613]
+position = Vector2(2, -74)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1415154666]
+shape = SubResource("RectangleShape2D_ptppe")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=967043126]
+volume_db = -20.0
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=945125117]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1949551821]
