@@ -1,19 +1,14 @@
 [gd_scene format=3 uid="uid://b4ueb7k2hw8bf"]
 
 [ext_resource type="Script" uid="uid://csgttapwoq51u" path="res://Scripts/blue_enemy_bullet.gd" id="1_1el8d"]
-[ext_resource type="Texture2D" uid="uid://6doqh7b10ivf" path="res://icon.svg" id="1_dpiuv"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://c587a2j005y6a" path="res://Sprites/Unsorted/Spine files/bullet_effects_res.res" id="3_7ubiq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1el8d"]
 radius = 41.01219
 
 [node name="Area2D" type="Area2D" unique_id=1839615199 groups=["Bullet"]]
+z_index = 10
 script = ExtResource("1_1el8d")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1442286465]
-visible = false
-scale = Vector2(0.65625, 0.609375)
-texture = ExtResource("1_dpiuv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=697320663]
 shape = SubResource("CircleShape2D_1el8d")

@@ -3,7 +3,7 @@ extends Node2D
 @onready var entities: Node2D = $Entities
 @onready var asteroids: Node2D = $Asteroids
 
-@export var enemy_blue_scene: PackedScene = preload("res://Scenes/enemy_red.tscn")
+@export var enemy_blue_scene: PackedScene = preload("res://Scenes/enemy_blue.tscn")
 
 
 @export var spawn_offset_y := -1200.0    
@@ -14,7 +14,7 @@ extends Node2D
 
 
 @export var wave_count := 3
-@export var enemies_per_wave := 2 * Global.level[0] 
+@export var enemies_per_wave := 2 * Global.level[1] 
 @export var enemy_spawn_interval := 1.0
 @export var wave_delay := 6.0
 
@@ -26,7 +26,7 @@ var spawned_positions: Array[Vector2] = []
 
 
 func _ready() -> void:
-	MusicController.play_music(1)
+	MusicController.play_music(2)
 	await get_tree().process_frame
 	player = get_tree().get_first_node_in_group("Player")
 	start_next_wave()
@@ -121,6 +121,6 @@ func get_spawn_position() -> Vector2:
 
 func level_complete() -> void:
 	print("Level complete!")
-	Global.level[0] += 1
+	Global.level[1] += 1
 	# TODO: Transition to the next level / victory screen
 	get_tree().change_scene_to_file("res://Scenes/mission_screen.tscn")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d4g6gyruk1md"
+path="res://.godot/imported/GWJ93 - Sketches - Blue Extended - A.mp3-ca624bc5c695b9b834083a20c1d763d6.mp3str"
+
+[deps]
+
+source_file="res://Sfx/Music/Blue/GWJ93 - Sketches - Blue Extended - A.mp3"
+dest_files=["res://.godot/imported/GWJ93 - Sketches - Blue Extended - A.mp3-ca624bc5c695b9b834083a20c1d763d6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
