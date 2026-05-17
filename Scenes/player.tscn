@@ -16,6 +16,7 @@ shape = SubResource("CapsuleShape2D_cvnsp")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1324085090]
 volume_db = -15.0
+bus = &"Effects"
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1135710745]
 position = Vector2(1, -69)
@@ -36,3 +37,4 @@ preview_time = 0.0
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=529493877]
 volume_db = -20.0
+bus = &"Effects"

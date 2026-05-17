@@ -53,6 +53,7 @@ polygon = PackedVector2Array(-13, 3, 0, -15, 14, 3)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1160043914]
 stream = ExtResource("5_n5dbs")
 volume_db = -20.0
+bus = &"Effects"
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=959406134]
 collision_layer = 2

@@ -7,9 +7,12 @@ script = ExtResource("1_e3i35")
 
 [node name="Layer1" type="AudioStreamPlayer" parent="." unique_id=1180898496]
 volume_db = -10.0
+bus = &"Music"
 
 [node name="Layer2" type="AudioStreamPlayer" parent="." unique_id=791679227]
 volume_db = -10.0
+bus = &"Music"
 
 [node name="Layer3" type="AudioStreamPlayer" parent="." unique_id=1646858354]
 volume_db = -10.0
+bus = &"Music"
