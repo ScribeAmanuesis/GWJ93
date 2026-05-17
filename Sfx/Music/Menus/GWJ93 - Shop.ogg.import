@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c8svacb8i6oh2"
+path="res://.godot/imported/GWJ93 - Shop.ogg-065f7fec3ce656829e2d63acf5397d9d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sfx/Music/Menus/GWJ93 - Shop.ogg"
+dest_files=["res://.godot/imported/GWJ93 - Shop.ogg-065f7fec3ce656829e2d63acf5397d9d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

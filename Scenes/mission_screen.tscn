@@ -4,8 +4,16 @@
 [ext_resource type="Script" uid="uid://jcpnpy6o8oo" path="res://Scripts/mission_screen.gd" id="1_h1ott"]
 [ext_resource type="Texture2D" uid="uid://dw7xlbm1kqikr" path="res://Sprites/Unsorted/UI/menu_bg.png" id="2_yow6n"]
 [ext_resource type="Texture2D" uid="uid://bdo5iket5bg8q" path="res://Sprites/Unsorted/UI/frame_red.png" id="3_paamu"]
+[ext_resource type="Texture2D" uid="uid://c2px3pw3vplo7" path="res://Sprites/Unsorted/Portraits/portrait_red.png" id="3_xoisv"]
+[ext_resource type="Texture2D" uid="uid://h15kdbcfca6x" path="res://Sprites/Unsorted/Portraits/portrait_blue.png" id="4_m8mov"]
 [ext_resource type="Texture2D" uid="uid://qsjiter2dou8" path="res://Sprites/Unsorted/UI/frame_blue.png" id="4_xvckx"]
 [ext_resource type="Texture2D" uid="uid://c5l7etg8rmm7t" path="res://Sprites/Unsorted/UI/frame_green.png" id="5_m8mov"]
+[ext_resource type="Texture2D" uid="uid://b7oo2xcjtd6u8" path="res://Sprites/Unsorted/Portraits/portrait_green.png" id="7_1xu1i"]
+[ext_resource type="FontFile" uid="uid://dbwg3023ga7k1" path="res://Font/Laconic_Regular.otf" id="10_1xu1i"]
+[ext_resource type="Script" uid="uid://bt5f4uyncdwts" path="res://Scripts/balance.gd" id="11_yawf4"]
+[ext_resource type="Texture2D" uid="uid://dllt2n15aalv7" path="res://Sprites/Unsorted/Icons/red_currency.png" id="12_sle6a"]
+[ext_resource type="Texture2D" uid="uid://deh6h5fjxtwqv" path="res://Sprites/Unsorted/Icons/blue_currency.png" id="13_bjeqd"]
+[ext_resource type="Texture2D" uid="uid://clbpbsdwf0wd6" path="res://Sprites/Unsorted/Icons/green_currency.png" id="14_kplea"]
 
 [node name="Control" type="Control" unique_id=1767523681]
 layout_mode = 3
@@ -47,6 +55,15 @@ offset_right = 337.0
 offset_bottom = 154.5
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="Missions/Red" unique_id=150324465]
+layout_mode = 0
+offset_left = -23.0
+offset_top = -161.0
+offset_right = 1081.0
+offset_bottom = 719.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_xoisv")
+
 [node name="Panel" type="MarginContainer" parent="Missions/Red" unique_id=1046089601]
 layout_mode = 0
 anchor_right = 1.0
@@ -72,6 +89,7 @@ offset_top = 8.0
 offset_right = 115.0
 offset_bottom = 37.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 text = "Requested by Retrialis"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -85,6 +103,7 @@ offset_top = 54.0
 offset_right = 115.0
 offset_bottom = 71.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 theme_override_font_sizes/font_size = 12
 text = "Mission 1/3"
 horizontal_alignment = 1
@@ -112,6 +131,7 @@ offset_top = 88.0
 offset_right = 115.0
 offset_bottom = 105.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 theme_override_font_sizes/font_size = 12
 text = "Survive 3 waves	"
 horizontal_alignment = 1
@@ -127,6 +147,7 @@ offset_right = 115.0
 offset_bottom = 122.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.5411765)
+theme_override_fonts/font = ExtResource("10_1xu1i")
 theme_override_font_sizes/font_size = 12
 text = "[weak enemies, short waves]"
 horizontal_alignment = 1
@@ -141,6 +162,7 @@ offset_top = 128.0
 offset_right = 101.0
 offset_bottom = 261.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 theme_override_font_sizes/font_size = 12
 text = "\"Our pilots need some training. Let's see if you can outlast even  this weak attack\""
 horizontal_alignment = 1
@@ -156,6 +178,7 @@ offset_top = 261.0
 offset_right = 99.0
 offset_bottom = 293.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 text = "Reward:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -192,6 +215,7 @@ offset_left = 10.0
 offset_top = 11.0
 offset_right = 221.0
 offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("10_1xu1i")
 text = "Embark"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -209,6 +233,15 @@ offset_right = 119.0
 offset_bottom = 154.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Missions/Blue" unique_id=411867515]
+layout_mode = 0
+offset_left = -23.0
+offset_top = -161.0
+offset_right = 1081.0
+offset_bottom = 719.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_m8mov")
 
 [node name="Panel" type="MarginContainer" parent="Missions/Blue" unique_id=1140832319]
 layout_mode = 1
@@ -259,6 +292,7 @@ offset_left = 10.0
 offset_top = 11.0
 offset_right = 221.0
 offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("10_1xu1i")
 text = "Embark"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -273,6 +307,7 @@ offset_top = 8.0
 offset_right = 115.0
 offset_bottom = 37.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 text = "Requested by Bluoborn"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -287,6 +322,7 @@ offset_top = 54.0
 offset_right = 115.0
 offset_bottom = 71.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 theme_override_font_sizes/font_size = 12
 text = "Mission 1/3"
 horizontal_alignment = 1
@@ -302,6 +338,7 @@ offset_top = 71.0
 offset_right = 115.0
 offset_bottom = 88.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 theme_override_font_sizes/font_size = 12
 text = "Difficulty: Easy"
 horizontal_alignment = 1
@@ -317,6 +354,7 @@ offset_top = 88.0
 offset_right = 115.0
 offset_bottom = 105.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 theme_override_font_sizes/font_size = 12
 text = "Survive 3 waves	"
 horizontal_alignment = 1
@@ -333,6 +371,7 @@ offset_right = 115.0
 offset_bottom = 122.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.5411765)
+theme_override_fonts/font = ExtResource("10_1xu1i")
 theme_override_font_sizes/font_size = 12
 text = "[weak enemies, short waves]"
 horizontal_alignment = 1
@@ -348,6 +387,7 @@ offset_top = 128.0
 offset_right = 101.0
 offset_bottom = 261.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 theme_override_font_sizes/font_size = 12
 text = "\"Our pilots need some training. Let's see if you can outlast even  this weak attack\""
 horizontal_alignment = 1
@@ -364,6 +404,7 @@ offset_top = 261.0
 offset_right = 99.0
 offset_bottom = 293.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 text = "Reward:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -381,6 +422,15 @@ offset_right = -108.0
 offset_bottom = 154.5
 grow_horizontal = 0
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Missions/Green" unique_id=1502829410]
+layout_mode = 0
+offset_left = -23.0
+offset_top = -161.0
+offset_right = 1081.0
+offset_bottom = 719.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_1xu1i")
 
 [node name="Panel" type="MarginContainer" parent="Missions/Green" unique_id=427677269]
 layout_mode = 1
@@ -431,6 +481,7 @@ offset_left = 10.0
 offset_top = 11.0
 offset_right = 221.0
 offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("10_1xu1i")
 text = "Embark"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -445,6 +496,7 @@ offset_top = 8.0
 offset_right = 115.0
 offset_bottom = 37.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 text = "Requested by Grhom"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -459,6 +511,7 @@ offset_top = 54.0
 offset_right = 115.0
 offset_bottom = 71.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 theme_override_font_sizes/font_size = 12
 text = "Mission 1/3"
 horizontal_alignment = 1
@@ -474,6 +527,7 @@ offset_top = 71.0
 offset_right = 115.0
 offset_bottom = 88.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 theme_override_font_sizes/font_size = 12
 text = "Difficulty: Easy"
 horizontal_alignment = 1
@@ -489,6 +543,7 @@ offset_top = 88.0
 offset_right = 115.0
 offset_bottom = 105.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 theme_override_font_sizes/font_size = 12
 text = "Survive 3 waves	"
 horizontal_alignment = 1
@@ -505,6 +560,7 @@ offset_right = 115.0
 offset_bottom = 122.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 0.5411765)
+theme_override_fonts/font = ExtResource("10_1xu1i")
 theme_override_font_sizes/font_size = 12
 text = "[weak enemies, short waves]"
 horizontal_alignment = 1
@@ -520,6 +576,7 @@ offset_top = 128.0
 offset_right = 101.0
 offset_bottom = 261.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 theme_override_font_sizes/font_size = 12
 text = "\"Our pilots need some training. Let's see if you can outlast even  this weak attack\""
 horizontal_alignment = 1
@@ -536,6 +593,7 @@ offset_top = 261.0
 offset_right = 99.0
 offset_bottom = 293.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("10_1xu1i")
 text = "Reward:"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -572,22 +630,68 @@ offset_left = 10.0
 offset_top = 11.0
 offset_right = 221.0
 offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("10_1xu1i")
 text = "Shop"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="." unique_id=1411402569]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
+[node name="Balance" type="HBoxContainer" parent="." unique_id=1664224579]
+layout_mode = 0
 offset_left = 10.0
-offset_top = -59.0
-offset_right = 315.0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 34
+offset_top = 593.0
+offset_right = 379.0
+offset_bottom = 646.0
+script = ExtResource("11_yawf4")
+
+[node name="BalanceLabel" type="Label" parent="Balance" unique_id=1805565623]
+layout_mode = 2
+theme_override_colors/font_color = Color(1.6854496, 0.43021482, 0.38266808, 1)
+theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 30
 text = "Balance:"
 vertical_alignment = 1
+
+[node name="RedBalance" type="Label" parent="Balance" unique_id=1667093325]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6313726, 0.007843138, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 30
+text = "100"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Balance" unique_id=1028905234]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("12_sle6a")
+expand_mode = 1
+
+[node name="BlueBalance" type="Label" parent="Balance" unique_id=2133021305]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.34901962, 0.30588236, 0.654902, 1)
+theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 30
+text = "100"
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Balance" unique_id=1235740005]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("13_bjeqd")
+expand_mode = 1
+
+[node name="GreenBalance" type="Label" parent="Balance" unique_id=1899915294]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1882353, 0.654902, 0.40784314, 1)
+theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 30
+text = "100"
+vertical_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Balance" unique_id=598552829]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("14_kplea")
+expand_mode = 1
 
 [connection signal="button_up" from="Missions/Red/ButtonRed" to="." method="_on_button_red_button_up"]
 [connection signal="button_up" from="Missions/Blue/ButtonBlue" to="." method="_on_button_blue_button_up"]

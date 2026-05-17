@@ -3,7 +3,9 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	MusicController.stop()
+	if MusicController.get_music() != 4:
+		MusicController.stop()
+		MusicController.play_music(4)
 	fill_missions()
 
 

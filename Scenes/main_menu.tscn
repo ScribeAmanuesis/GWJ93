@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dtiuc6kyekgxd" path="res://Sprites/Unsorted/UI/button_blue.png" id="3_n45e2"]
 [ext_resource type="FontFile" uid="uid://dbwg3023ga7k1" path="res://Font/Laconic_Regular.otf" id="4_cp0ys"]
 [ext_resource type="Texture2D" uid="uid://do5ug40egoyav" path="res://Sprites/Unsorted/UI/button_green.png" id="4_opfnp"]
+[ext_resource type="Texture2D" uid="uid://vw3gwonredya" path="res://Sprites/Unsorted/Portraits/Title.png" id="7_cp0ys"]
 
 [node name="MainMenu" type="Control" unique_id=1687114122]
 layout_mode = 3
@@ -15,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_28flt")
+metadata/_edit_vertical_guides_ = [374.0, 778.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=985521375]
 position = Vector2(576.5294, 324)
@@ -36,6 +38,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="PlayBtn" type="TextureButton" parent="Buttons" unique_id=1491359212]
+modulate = Color(1, 1, 1, 0.7607843)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -56,7 +59,8 @@ patch_margin_bottom = 32
 
 [node name="Label" type="Label" parent="Buttons/PlayBtn" unique_id=136927069]
 layout_mode = 0
-offset_right = 404.0
+offset_left = 2.0
+offset_right = 402.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.6313726, 0.007843138, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("4_cp0ys")
@@ -66,6 +70,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OptionsBtn" type="TextureButton" parent="Buttons" unique_id=515702265]
+modulate = Color(1, 1, 1, 0.7607843)
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -100,6 +105,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CreditsBtn" type="TextureButton" parent="Buttons" unique_id=631987692]
+modulate = Color(1, 1, 1, 0.7607843)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -131,6 +137,11 @@ theme_override_font_sizes/font_size = 40
 text = "Credits"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Title" type="Sprite2D" parent="." unique_id=597487667]
+position = Vector2(567, 174)
+scale = Vector2(0.4558145, 0.45581457)
+texture = ExtResource("7_cp0ys")
 
 [connection signal="button_up" from="Buttons/PlayBtn" to="." method="_on_play_btn_button_up"]
 [connection signal="button_up" from="Buttons/OptionsBtn" to="." method="_on_options_btn_button_up"]

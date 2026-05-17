@@ -1,8 +1,8 @@
 [gd_resource type="SpineSkeletonDataResource" format=3 uid="uid://jhl0jc83452w"]
 
-[ext_resource type="SpineAtlasResource" uid="uid://crolsq111xjmi" path="res://Sprites/Unsorted/Spine files/gs_model.atlas" id="1_g203m"]
-[ext_resource type="SpineSkeletonFileResource" uid="uid://bmkbt4xc15gyy" path="res://Sprites/Unsorted/Spine files/gs_model.skel" id="2_r5r5i"]
+[ext_resource type="SpineAtlasResource" uid="uid://dwvk5nm2nkc2o" path="res://Sprites/Unsorted/Spine files/gs_model.atlas" id="1_g203m"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://bxcrnngc66wu2" path="res://Sprites/Unsorted/Spine files/ship_models_1.skel" id="2_g203m"]
 
 [resource]
 atlas_res = ExtResource("1_g203m")
-skeleton_file_res = ExtResource("2_r5r5i")
+skeleton_file_res = ExtResource("2_g203m")

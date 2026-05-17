@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bqoblwqrbgcta"
+path="res://.godot/imported/Green Ship Laser Ogg Final.ogg-df4e5266d803934aa4d308b7e3b05582.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sfx/Green Ship Laser Ogg Final.ogg"
+dest_files=["res://.godot/imported/Green Ship Laser Ogg Final.ogg-df4e5266d803934aa4d308b7e3b05582.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -6,7 +6,10 @@ enum MovementMode {
 	ASTEROIDS
 }
 var can_shoot: bool = true
+var is_dead: bool = false
 @onready var bullet_spawn: Marker2D = $Marker2D
+
+signal health_changed(current_health, max_health)
 
 var engine_sfx : AudioStream = preload("res://Sfx/engine.mp3")
 var shoot_sfx : AudioStream = preload("res://Sfx/Player Ship Attack.mp3")
@@ -14,7 +17,8 @@ var shoot_sfx : AudioStream = preload("res://Sfx/Player Ship Attack.mp3")
 
 @export var bullet_scene: PackedScene = preload("res://Scenes/player_bullet.tscn")
 @export var shoot_delay: float = .8
-@export var health := 100.0
+@export var max_health := 10
+var health := max_health
 
 @onready var engine_player: AudioStreamPlayer = $AudioStreamPlayer
 
@@ -131,7 +135,10 @@ func move_asteroids(delta: float) -> void:
 		body_anim_state.add_animation("ds_fly",0.0, true)
 
 func damage(amount: float):
+	if is_dead:
+		return
 	health -= amount
+	health_changed.emit(health, 10)
 	if health <= 0:
 		die()
 		return
@@ -140,9 +147,13 @@ func damage(amount: float):
 	body_anim_state.add_animation("ds_fly",0.3 ,true)
 
 func die():
-	#TODO: reset run
+	if is_dead:
+		return
+
+	is_dead = true
 	var body_anim_state : = body.get_animation_state()
 	body_anim_state.set_animation("ds_defeat")
 	cannon.hide()
 	await body.animation_completed
+	get_tree().change_scene_to_file("res://Scenes/mission_screen.tscn")
 	queue_free()

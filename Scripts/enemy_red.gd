@@ -18,7 +18,7 @@ var die_sound : Array[AudioStream] = [
 	]
 var is_dead := false
 var target: Player = null
-@export var collision_damage := 10.0
+@export var collision_damage := 1.0
 @export var knockback_force := 500.0
 @export var knockback_time := 0.2
 #NOTE: I think the knockback was too weak because of the speed limit, so I added this flag
@@ -33,7 +33,7 @@ signal dying
 var can_shoot := true
 @export var bullet_spread := 10
 
-@export var health := 30.0
+@export var health := 10.0
 
 @export var turn_speed := 5
 @export var max_speed := 300

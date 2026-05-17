@@ -1,7 +1,7 @@
 extends Node
 						 #R, G, B
 var level : Array[int] = [1, 1, 1]
-
+var balance: Array[int] = [0,0,0]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

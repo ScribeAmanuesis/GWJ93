@@ -22,12 +22,12 @@ preview_time = 0.0
 [node name="Cannon" type="SpineSprite" parent="." unique_id=324580532]
 skeleton_data_res = ExtResource("1_mkiw8")
 preview_skin = "Default"
-preview_animation = "-- Empty --"
+preview_animation = "gs_cannon_shot"
 preview_frame = false
 preview_time = 0.0
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1708415613]
-position = Vector2(2, -74)
+position = Vector2(1, -186)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1415154666]
 shape = SubResource("RectangleShape2D_ptppe")

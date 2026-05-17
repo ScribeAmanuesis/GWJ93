@@ -8,10 +8,10 @@ var is_shooting := false
 
 @export var turn_speed := .5
 @export var sprite_height := 132.0
-@export var health := 150.0
+@export var health := 10.0
 @export var teleport_interval := 5.0
 @export var telegraph_duration := 1.5
-@export var laser_duration := 2.0
+@export var laser_duration := 1.0
 
 @export var laser_scene: PackedScene = preload("res://Scenes/green_laser.tscn")
 @onready var bullet_spawn: Marker2D = $Marker2D
@@ -24,7 +24,7 @@ var is_alerting := false
 @onready var cannon: SpineSprite = $Cannon
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
-var laser_sound: AudioStream = preload("res://Sfx/Laser Attack2.mp3")
+var laser_sound: AudioStream = preload("res://Sfx/Green Ship Laser Ogg Final.ogg")
 var die_sound: Array[AudioStream] = [
 	preload("res://Sfx/explosion 1.mp3"),
 	preload("res://Sfx/explosion 2.mp3"),
@@ -39,11 +39,11 @@ var view_area := deg_to_rad(360.0)
 func _ready() -> void:
 	generate_rays()
 	teleport_timer = teleport_interval
-	var body_anim := body.get_animation_state()
-	body_anim.add_animation("gs_idle", 0.0, true)
+	cannon.visible = false
+	await play_teleport_animation(false)
 	var cannon_anim := cannon.get_animation_state()
 	cannon_anim.add_animation("gs_cannon_idle", 0.0, true)
-	
+
 func generate_rays() -> void:
 	var ray_count := int(view_area / angle_between_rays)
 	for i in range(ray_count):
@@ -51,11 +51,11 @@ func generate_rays() -> void:
 		var angle := angle_between_rays * (i - ray_count / 2.0)
 		ray.target_position = Vector2.UP.rotated(angle) * max_view
 		add_child(ray)
-		
+
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
-		
+
 	target = null
 	for child in get_children():
 		if child is RayCast2D:
@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 			if ray.is_colliding() and ray.get_collider() is Player:
 				target = ray.get_collider()
 				break
-				
+
 	var sees_player := target != null
 	if sees_player and !is_alerting:
 		is_alerting = true
@@ -73,12 +73,12 @@ func _physics_process(delta: float) -> void:
 		is_alerting = false
 		MusicController.enemies_alerted = max(MusicController.enemies_alerted - 1, 0)
 		MusicController.update_intensity()
-		
+
 	if sees_player:
 		if !is_shooting:
 			var target_rotation := global_position.angle_to_point(target.global_position) + PI / 2
 			rotation = target_rotation
-			
+
 		teleport_timer -= delta
 		if teleport_timer <= 0.0:
 			teleport_timer = teleport_interval
@@ -88,46 +88,65 @@ func get_random_position() -> Vector2:
 	var camera := get_viewport().get_camera_2d()
 	var screen_size := get_viewport_rect().size / camera.zoom
 	var margin := 100.0
-	
+
 	var attempts := 0
 	while attempts < 20:
 		var candidate := Vector2(
 			camera.global_position.x + randf_range(-screen_size.x / 2.0 + margin, screen_size.x / 2.0 - margin),
 			camera.global_position.y + randf_range(-screen_size.y / 2.0 + margin, screen_size.y / 2.0 - margin)
 		)
-		
+
 		var space := get_world_2d().direct_space_state
 		var params := PhysicsPointQueryParameters2D.new()
 		params.position = candidate
 		params.collision_mask = collision_mask
 		var results := space.intersect_point(params)
-		
+
 		if results.is_empty():
 			return candidate
 		attempts += 1
-	
+
 	return Vector2(
 		camera.global_position.x + randf_range(-screen_size.x / 2.0 + margin, screen_size.x / 2.0 - margin),
 		camera.global_position.y + randf_range(-screen_size.y / 2.0 + margin, screen_size.y / 2.0 - margin)
 	)
-	
+
+func play_teleport_animation(do_teleport: bool = false) -> void:
+	var body_anim := body.get_animation_state()
+	cannon.visible = false
+	body_anim.set_animation("gs_teleport", false)
+
+	var anim_data = body.get_skeleton().get_data().find_animation("gs_teleport")
+	var duration := anim_data.get_duration() if anim_data != null else 0.4
+	var half := duration / 2.0
+
+	await get_tree().create_timer(half).timeout
+
+	if do_teleport:
+		global_position = get_random_position()
+
+	await get_tree().create_timer(half).timeout
+
+	cannon.visible = true
+	body_anim.set_animation("gs_idle", true)
+
 func shoot() -> void:
 	if !can_shoot or is_dead or target == null:
 		return
 	can_shoot = false
 	is_shooting = true
-	
+
 	var cannon_anim := cannon.get_animation_state()
 	cannon_anim.set_animation("gs_cannon_shot")
 	audio_stream_player.stream = laser_sound
 	audio_stream_player.play()
-	var charge_time := 3.0
+	var charge_time := 4.0
 	var elapsed := 0.0
 	var telegraph := Line2D.new()
 	telegraph.width = 20.0
 	telegraph.default_color = Color(0.2, 1.0, 0.2, 0.5)
 	get_parent().add_child(telegraph)
-	
+
 	while elapsed < charge_time:
 		await get_tree().physics_frame
 		if is_dead:
@@ -136,7 +155,7 @@ func shoot() -> void:
 			return
 		var delta := get_physics_process_delta_time()
 		elapsed += delta
-		
+
 		if target != null:
 			var dir := global_position.direction_to(target.global_position)
 			var target_angle := dir.angle() + PI / 2.0
@@ -148,20 +167,19 @@ func shoot() -> void:
 			telegraph.clear_points()
 			telegraph.add_point(global_position)
 			telegraph.add_point(global_position + current_dir * length)
-			
+
 	var shoot_direction := Vector2.UP.rotated(rotation)
 	telegraph.queue_free()
-	is_shooting = true  
-	
+	is_shooting = true
+
 	var camera := get_viewport().get_camera_2d()
 	var viewport_size := get_viewport_rect().size / camera.zoom
-	var laser_length := viewport_size.length() 
+	var laser_length := viewport_size.length()
 	var count := int(ceil(laser_length / sprite_height)) + 2
 	var lasers: Array = []
-	
+
 	for i in range(count):
 		var laser = laser_scene.instantiate()
-		#laser.z_index = -1 
 		get_parent().add_child(laser)
 		laser.global_position = bullet_spawn.global_position + shoot_direction * sprite_height * i
 		laser.rotation = shoot_direction.angle() + PI / 2.0
@@ -172,20 +190,22 @@ func shoot() -> void:
 			laser.is_main = true
 			laser.duration = laser_duration
 		lasers.append(laser)
-		
+
 	await get_tree().create_timer(laser_duration).timeout
-	
+
 	for laser in lasers:
 		if is_instance_valid(laser):
 			laser.queue_free()
-			
-	global_position = get_random_position()
+
+	var close_animation_duration := 0.5
+	await get_tree().create_timer(close_animation_duration).timeout
+
+	await play_teleport_animation(true)
+
 	is_shooting = false
-	
 	cannon_anim.set_animation("gs_cannon_idle")
 	await get_tree().create_timer(teleport_interval * 0.5).timeout
 	can_shoot = true
-	
 
 func damage(amount: float) -> void:
 	if is_dead:
@@ -203,18 +223,18 @@ func die() -> void:
 		return
 	is_dead = true
 	can_shoot = false
-	
+
 	MusicController.enemies_alerted = max(MusicController.enemies_alerted - 1, 0)
 	MusicController.update_intensity()
-	
+
 	dying.emit()
 	set_physics_process(false)
 	velocity = Vector2.ZERO
 	cannon.visible = false
-	
+
 	audio_stream_player.stream = die_sound.pick_random()
 	audio_stream_player.play()
-	
+
 	var body_anim := body.get_animation_state()
 	body_anim.set_animation("gs_defeat", false)
 
@@ -222,7 +242,6 @@ func die() -> void:
 	var duration = anim.get_duration()
 	await get_tree().create_timer(duration).timeout
 	queue_free()
-
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	global_position = get_random_position()

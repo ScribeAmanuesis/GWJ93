@@ -32,7 +32,7 @@ var is_alerting := false
 @onready var bullet_spawn: Marker2D = $Marker2D
 @export var bullet_scene: PackedScene = preload("res://Scenes/blue_enemy_bullet.tscn")
 
-@export var health := 100.0
+@export var health := 10.0
 
 @export var max_speed := 520.0
 @export var acceleration := 700.0

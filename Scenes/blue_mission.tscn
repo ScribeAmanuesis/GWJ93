@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://df8g8wx2sbp58" path="res://Scenes/player.tscn" id="14_onfrk"]
 [ext_resource type="Script" uid="uid://cxk8souejlbob" path="res://Scripts/camera_2d.gd" id="15_fgnwg"]
 [ext_resource type="PackedScene" uid="uid://it307ruobgy5" path="res://Scenes/asteroid.tscn" id="16_o4nuk"]
+[ext_resource type="PackedScene" uid="uid://bry7jxbyev8hq" path="res://Scenes/health_bar.tscn" id="17_04prp"]
+[ext_resource type="Texture2D" uid="uid://wp8ybkx4td05" path="res://Sprites/Unsorted/UI/fixed_hp_slot_full.png" id="18_x1ft5"]
+[ext_resource type="Texture2D" uid="uid://db6vk8hm06m6f" path="res://Sprites/Unsorted/UI/fixed_hp_slot_empty.png" id="19_ffit2"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_74fxw"]
 noise_type = 3
@@ -172,12 +175,6 @@ texture = ExtResource("13_wm0e7")
 
 [node name="CharacterBody2D" parent="Entities" unique_id=71516756 instance=ExtResource("14_onfrk")]
 position = Vector2(-15, 924)
-health = 1e+16
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1538018778]
-position = Vector2(1, 382)
-zoom = Vector2(0.25, 0.25)
-script = ExtResource("15_fgnwg")
 
 [node name="Asteroids" type="Node2D" parent="." unique_id=486222135]
 
@@ -297,3 +294,17 @@ radius = 300
 line_width = 0.053
 variance_range = 432
 noise = SubResource("FastNoiseLite_wm0e7")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1538018778]
+position = Vector2(1, 382)
+zoom = Vector2(0.25, 0.25)
+script = ExtResource("15_fgnwg")
+
+[node name="HBoxContainer" parent="Camera2D" unique_id=731669083 instance=ExtResource("17_04prp")]
+layout_direction = 1
+offset_left = -2274.0
+offset_top = -1266.0
+offset_right = 1.0
+offset_bottom = -1193.0
+full_texture = ExtResource("18_x1ft5")
+empty_texture = ExtResource("19_ffit2")
