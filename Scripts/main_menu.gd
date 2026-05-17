@@ -20,4 +20,4 @@ func _on_options_btn_button_up() -> void:
 
 
 func _on_credits_btn_button_up() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/credits_screen.tscn")
