@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bo1fmnyo0r77n"
+path="res://.godot/imported/GWJ93 - Blue B.ogg-02d66093dfcc50dd7cbbd337ace55da6.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sfx/Music/Blue/GWJ93 - Blue B.ogg"
+dest_files=["res://.godot/imported/GWJ93 - Blue B.ogg-02d66093dfcc50dd7cbbd337ace55da6.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

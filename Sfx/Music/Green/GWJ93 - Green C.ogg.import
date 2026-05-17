@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b521rkfwweiak"
+path="res://.godot/imported/GWJ93 - Green C.ogg-a1a0f186b12471fe310fb7f3bb7dfe37.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sfx/Music/Green/GWJ93 - Green C.ogg"
+dest_files=["res://.godot/imported/GWJ93 - Green C.ogg-a1a0f186b12471fe310fb7f3bb7dfe37.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
