@@ -3,12 +3,11 @@
 importer="spine.skel"
 type="SpineSkeletonFileResource"
 uid="uid://bmkbt4xc15gyy"
-path="res://.godot/imported/gs_model.skel-e53734f9fcc7897460e1d81aea012176.spskel"
+valid=false
 
 [deps]
 
 source_file="res://Sprites/Unsorted/Spine files/gs_model.skel"
-dest_files=["res://.godot/imported/gs_model.skel-e53734f9fcc7897460e1d81aea012176.spskel"]
 
 [params]
 
