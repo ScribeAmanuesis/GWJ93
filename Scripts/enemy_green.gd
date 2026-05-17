@@ -6,7 +6,7 @@ var is_dead := false
 var can_shoot := true
 var is_shooting := false
 
-@export var turn_speed := .5
+@export var turn_speed := .3
 @export var sprite_height := 132.0
 @export var health := 10.0
 @export var teleport_interval := 5.0

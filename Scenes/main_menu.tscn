@@ -16,7 +16,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_28flt")
-metadata/_edit_vertical_guides_ = [374.0, 778.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=985521375]
 position = Vector2(576.5294, 324)

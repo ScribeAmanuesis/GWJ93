@@ -5,6 +5,9 @@ enum MovementMode {
 	WASD,
 	ASTEROIDS
 }
+var is_invulnerable: bool = false
+@export var invulnerability_duration: float = 1.0
+
 var can_shoot: bool = true
 var is_dead: bool = false
 @onready var bullet_spawn: Marker2D = $Marker2D
@@ -19,7 +22,7 @@ var shoot_sfx : AudioStream = preload("res://Sfx/Player Ship Attack.mp3")
 @export var shoot_delay: float = .8
 @export var max_health := 10
 var health := max_health
-
+var bullet_damage
 @onready var engine_player: AudioStreamPlayer = $AudioStreamPlayer
 
 @export var movement_mode: MovementMode = MovementMode.WASD
@@ -37,8 +40,20 @@ var health := max_health
 @onready var body: SpineSprite = $Body
 @onready var cannon: SpineSprite = $Cannon
 
-func _ready() -> void:
+func apply_upgrades():
+	# movement
+	move_speed = Global.move_speed
+	turn_speed = Global.rotation_speed
 
+	# fire rate
+	shoot_delay = max(0.1, 0.8 / Global.fire_rate)
+
+	# damage
+	bullet_damage = Global.damage
+
+func _ready() -> void:
+	health = Global.player_health
+	apply_upgrades()
 	# Set initial animation state
 	var body_anim_state : = body.get_animation_state()
 	body_anim_state.add_animation("ds_idle", 0.0, true)
@@ -84,6 +99,7 @@ func shoot():
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = bullet_spawn.global_position
 	bullet.direction = Vector2.UP.rotated(rotation)
+	bullet.damage = bullet_damage
 	add_sibling(bullet)
 
 	# Change animation state
@@ -137,15 +153,24 @@ func move_asteroids(delta: float) -> void:
 func damage(amount: float):
 	if is_dead:
 		return
+	if is_invulnerable:
+		return
 	health -= amount
-	health_changed.emit(health, 10)
+	Global.player_health = health
+	health_changed.emit(health, max_health)
 	if health <= 0:
 		die()
 		return
+	
+	is_invulnerable = true
+	await get_tree().create_timer(invulnerability_duration).timeout
+	is_invulnerable = false
+	
 	var body_anim_state = body.get_animation_state()
 	body_anim_state.set_animation("ds_damaged", false)
-	body_anim_state.add_animation("ds_fly",0.3 ,true)
-
+	body_anim_state.add_animation("ds_fly", 0.3, true)
+	
+	
 func die():
 	if is_dead:
 		return

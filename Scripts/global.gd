@@ -1,13 +1,18 @@
 extends Node
-						 #R, G, B
-var level : Array[int] = [1, 1, 1]
-var balance: Array[int] = [0,0,0]
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+# R, B, G
+var level : Array[int] = [3, 3, 3]
+var balance: Array[int] = [100, 100, 100]
 
+# upgrades
+var damage := 1.0
+var fire_rate := 1.0
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var invulnerability_time := 1.0
+
+var move_speed := 500.0
+var rotation_speed := 4.0
+
+# player state
+var player_max_health := 10
+var player_health := 10

@@ -131,7 +131,7 @@ offset_right = 194.0
 offset_bottom = 112.0
 theme_override_fonts/font = ExtResource("1_a0mxf")
 theme_override_font_sizes/font_size = 16
-text = "Description"
+text = "Ship shoots faster (3 left)"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -157,8 +157,8 @@ offset_top = 9.0
 offset_right = 422.0
 offset_bottom = 52.0
 theme_override_fonts/font = ExtResource("1_a0mxf")
-theme_override_font_sizes/font_size = 20
-text = "Item Name"
+theme_override_font_sizes/font_size = 30
+text = "Fire rate Boost"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -173,7 +173,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.6313726, 0.007843138, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("1_a0mxf")
 theme_override_font_sizes/font_size = 30
-text = "6"
+text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -274,7 +274,7 @@ offset_right = 194.0
 offset_bottom = 112.0
 theme_override_fonts/font = ExtResource("1_a0mxf")
 theme_override_font_sizes/font_size = 16
-text = "Description"
+text = "Ship's laser deals more damage (3 left)"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -300,8 +300,8 @@ offset_top = 9.0
 offset_right = 422.0
 offset_bottom = 52.0
 theme_override_fonts/font = ExtResource("1_a0mxf")
-theme_override_font_sizes/font_size = 20
-text = "Item Name"
+theme_override_font_sizes/font_size = 30
+text = "Damage Boost"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -423,7 +423,7 @@ offset_right = 194.0
 offset_bottom = 112.0
 theme_override_fonts/font = ExtResource("1_a0mxf")
 theme_override_font_sizes/font_size = 16
-text = "Description"
+text = "Longer invincibility after receiving damage (3 left)"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -449,8 +449,8 @@ offset_top = 9.0
 offset_right = 422.0
 offset_bottom = 52.0
 theme_override_fonts/font = ExtResource("1_a0mxf")
-theme_override_font_sizes/font_size = 20
-text = "Item Name"
+theme_override_font_sizes/font_size = 30
+text = "Shield"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -465,7 +465,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.37254903, 0.34117648, 0.7137255, 1)
 theme_override_fonts/font = ExtResource("1_a0mxf")
 theme_override_font_sizes/font_size = 30
-text = "6"
+text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -566,7 +566,7 @@ offset_right = 194.0
 offset_bottom = 112.0
 theme_override_fonts/font = ExtResource("1_a0mxf")
 theme_override_font_sizes/font_size = 16
-text = "Description"
+text = "Repair your ship"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -592,8 +592,8 @@ offset_top = 9.0
 offset_right = 422.0
 offset_bottom = 52.0
 theme_override_fonts/font = ExtResource("1_a0mxf")
-theme_override_font_sizes/font_size = 20
-text = "Item Name"
+theme_override_font_sizes/font_size = 30
+text = "Repair"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -608,7 +608,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.37254903, 0.34117648, 0.7137255, 1)
 theme_override_fonts/font = ExtResource("1_a0mxf")
 theme_override_font_sizes/font_size = 30
-text = "6"
+text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -715,7 +715,7 @@ offset_right = 194.0
 offset_bottom = 112.0
 theme_override_fonts/font = ExtResource("1_a0mxf")
 theme_override_font_sizes/font_size = 16
-text = "Description"
+text = "Ship flies faster (3 left)"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -741,8 +741,8 @@ offset_top = 9.0
 offset_right = 422.0
 offset_bottom = 52.0
 theme_override_fonts/font = ExtResource("1_a0mxf")
-theme_override_font_sizes/font_size = 20
-text = "Item Name"
+theme_override_font_sizes/font_size = 30
+text = "Engine Upgrade"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -858,7 +858,8 @@ offset_right = 194.0
 offset_bottom = 112.0
 theme_override_fonts/font = ExtResource("1_a0mxf")
 theme_override_font_sizes/font_size = 16
-text = "Description"
+text = "Ship rotates faster 
+(3 left)"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -884,8 +885,8 @@ offset_top = 9.0
 offset_right = 422.0
 offset_bottom = 52.0
 theme_override_fonts/font = ExtResource("1_a0mxf")
-theme_override_font_sizes/font_size = 20
-text = "Item Name"
+theme_override_font_sizes/font_size = 30
+text = "Rotation Speed Upgrade"
 vertical_alignment = 1
 autowrap_mode = 3
 
@@ -900,7 +901,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.1882353, 0.654902, 0.40784314, 1)
 theme_override_fonts/font = ExtResource("1_a0mxf")
 theme_override_font_sizes/font_size = 30
-text = "6"
+text = "4"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -21,3 +21,5 @@ preview_skin = "Default"
 preview_animation = "gs_laserbeam"
 preview_frame = false
 preview_time = 0.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
