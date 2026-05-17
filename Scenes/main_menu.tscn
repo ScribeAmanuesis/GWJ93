@@ -16,6 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_28flt")
+metadata/_edit_vertical_guides_ = [425.0, 711.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=985521375]
 position = Vector2(576.5294, 324)
@@ -41,13 +42,15 @@ modulate = Color(1, 1, 1, 0.7607843)
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 67.0
+offset_left = 51.0
+offset_right = -67.0
+offset_bottom = 63.0
 grow_horizontal = 2
 focus_mode = 0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Buttons/PlayBtn" unique_id=2088638268]
 layout_mode = 0
-offset_right = 404.0
+offset_right = 286.0
 offset_bottom = 64.0
 texture = ExtResource("2_ce3w2")
 region_rect = Rect2(0, 0, 102, 102)
@@ -59,7 +62,7 @@ patch_margin_bottom = 32
 [node name="Label" type="Label" parent="Buttons/PlayBtn" unique_id=136927069]
 layout_mode = 0
 offset_left = 2.0
-offset_right = 402.0
+offset_right = 286.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.6313726, 0.007843138, 0.007843138, 1)
 theme_override_fonts/font = ExtResource("4_cp0ys")
@@ -75,7 +78,9 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+offset_left = 51.0
 offset_top = -31.0
+offset_right = -67.0
 offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -83,7 +88,7 @@ focus_mode = 0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Buttons/OptionsBtn" unique_id=21358456]
 layout_mode = 0
-offset_right = 404.0
+offset_right = 286.0
 offset_bottom = 64.0
 texture = ExtResource("3_n45e2")
 region_rect = Rect2(0, 0, 102, 102)
@@ -94,7 +99,7 @@ patch_margin_bottom = 32
 
 [node name="Label" type="Label" parent="Buttons/OptionsBtn" unique_id=1971097677]
 layout_mode = 0
-offset_right = 404.0
+offset_right = 285.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0.1764706, 0.14509805, 0.5176471, 1)
 theme_override_fonts/font = ExtResource("4_cp0ys")
@@ -110,14 +115,16 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 51.0
 offset_top = -63.0
+offset_right = -67.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_mode = 0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Buttons/CreditsBtn" unique_id=1703891740]
 layout_mode = 0
-offset_right = 404.0
+offset_right = 286.0
 offset_bottom = 64.0
 texture = ExtResource("4_opfnp")
 region_rect = Rect2(0, 0, 102, 102)
@@ -128,7 +135,7 @@ patch_margin_bottom = 32
 
 [node name="Label" type="Label" parent="Buttons/CreditsBtn" unique_id=1143569563]
 layout_mode = 0
-offset_right = 404.0
+offset_right = 286.0
 offset_bottom = 64.0
 theme_override_colors/font_color = Color(0, 0.3019608, 0.14117648, 1)
 theme_override_fonts/font = ExtResource("4_cp0ys")
@@ -138,8 +145,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Title" type="Sprite2D" parent="." unique_id=597487667]
-position = Vector2(567, 174)
-scale = Vector2(0.4558145, 0.45581457)
+position = Vector2(563.00006, 166)
+scale = Vector2(0.5024973, 0.50249743)
 texture = ExtResource("7_cp0ys")
 
 [connection signal="button_up" from="Buttons/PlayBtn" to="." method="_on_play_btn_button_up"]

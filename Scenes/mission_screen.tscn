@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dllt2n15aalv7" path="res://Sprites/Unsorted/Icons/red_currency.png" id="12_sle6a"]
 [ext_resource type="Texture2D" uid="uid://deh6h5fjxtwqv" path="res://Sprites/Unsorted/Icons/blue_currency.png" id="13_bjeqd"]
 [ext_resource type="Texture2D" uid="uid://clbpbsdwf0wd6" path="res://Sprites/Unsorted/Icons/green_currency.png" id="14_kplea"]
+[ext_resource type="FontFile" uid="uid://vsqvrohdvvwf" path="res://Font/Laconic_Bold.otf" id="15_sle6a"]
 
 [node name="Control" type="Control" unique_id=1767523681]
 layout_mode = 3
@@ -23,8 +24,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h1ott")
-metadata/_edit_vertical_guides_ = [339.0, 109.0]
-metadata/_edit_horizontal_guides_ = [541.0, 477.0]
+metadata/_edit_horizontal_guides_ = [541.0, 477.0, 451.0, 419.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=668245193]
 position = Vector2(576.5294, 324.00003)
@@ -169,20 +169,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Reward" type="Label" parent="Missions/Red" unique_id=798812884]
-layout_mode = 0
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -100.0
-offset_top = 261.0
-offset_right = 99.0
-offset_bottom = 293.0
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("10_1xu1i")
-text = "Reward:"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="ButtonRed" type="TextureButton" parent="Missions/Red" unique_id=249382751]
 layout_mode = 1
 anchors_preset = 7
@@ -219,6 +205,63 @@ theme_override_fonts/font = ExtResource("10_1xu1i")
 text = "Embark"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Reward" type="HBoxContainer" parent="Missions/Red" unique_id=1607141241]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 261.0
+offset_right = 216.0
+offset_bottom = 293.0
+
+[node name="BalanceLabel" type="Label" parent="Missions/Red/Reward" unique_id=1993060630]
+layout_mode = 2
+theme_override_colors/font_color = Color(1.685, 1.685, 1.685, 1)
+theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 16
+text = "Reward:"
+vertical_alignment = 1
+
+[node name="RedBalance" type="Label" parent="Missions/Red/Reward" unique_id=1972958990]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6313726, 0.007843138, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 16
+text = "6"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Missions/Red/Reward" unique_id=417955468]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture = ExtResource("12_sle6a")
+expand_mode = 1
+
+[node name="BlueBalance" type="Label" parent="Missions/Red/Reward" unique_id=350861855]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.34901962, 0.30588236, 0.654902, 1)
+theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 16
+text = "3"
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Missions/Red/Reward" unique_id=879099248]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture = ExtResource("13_bjeqd")
+expand_mode = 1
+
+[node name="GreenBalance" type="Label" parent="Missions/Red/Reward" unique_id=1497395429]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1882353, 0.654902, 0.40784314, 1)
+theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 16
+text = "3"
+vertical_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Missions/Red/Reward" unique_id=1575336857]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture = ExtResource("14_kplea")
+expand_mode = 1
 
 [node name="Blue" type="Control" parent="Missions" unique_id=1570841791]
 layout_mode = 1
@@ -394,20 +437,62 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Reward" type="Label" parent="Missions/Blue" unique_id=1499930901]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -100.0
+[node name="Reward" type="HBoxContainer" parent="Missions/Blue" unique_id=1380877869]
+layout_mode = 0
+offset_left = 13.0
 offset_top = 261.0
-offset_right = 99.0
+offset_right = 216.0
 offset_bottom = 293.0
-grow_horizontal = 2
+
+[node name="BalanceLabel" type="Label" parent="Missions/Blue/Reward" unique_id=343972917]
+layout_mode = 2
+theme_override_colors/font_color = Color(1.685, 1.685, 1.685, 1)
 theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 16
 text = "Reward:"
-horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RedBalance" type="Label" parent="Missions/Blue/Reward" unique_id=353758181]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6313726, 0.007843138, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 16
+text = "3"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Missions/Blue/Reward" unique_id=1378759690]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture = ExtResource("12_sle6a")
+expand_mode = 1
+
+[node name="BlueBalance" type="Label" parent="Missions/Blue/Reward" unique_id=1531484480]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.34901962, 0.30588236, 0.654902, 1)
+theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 16
+text = "6"
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Missions/Blue/Reward" unique_id=1904639549]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture = ExtResource("13_bjeqd")
+expand_mode = 1
+
+[node name="GreenBalance" type="Label" parent="Missions/Blue/Reward" unique_id=95433770]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1882353, 0.654902, 0.40784314, 1)
+theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 16
+text = "3"
+vertical_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Missions/Blue/Reward" unique_id=1112961776]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture = ExtResource("14_kplea")
+expand_mode = 1
 
 [node name="Green" type="Control" parent="Missions" unique_id=550893246]
 layout_mode = 1
@@ -583,20 +668,62 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Reward" type="Label" parent="Missions/Green" unique_id=1411675817]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -100.0
+[node name="Reward" type="HBoxContainer" parent="Missions/Green" unique_id=1628904092]
+layout_mode = 0
+offset_left = 13.0
 offset_top = 261.0
-offset_right = 99.0
+offset_right = 216.0
 offset_bottom = 293.0
-grow_horizontal = 2
+
+[node name="BalanceLabel" type="Label" parent="Missions/Green/Reward" unique_id=1478259978]
+layout_mode = 2
+theme_override_colors/font_color = Color(1.685, 1.685, 1.685, 1)
 theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 16
 text = "Reward:"
-horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RedBalance" type="Label" parent="Missions/Green/Reward" unique_id=512313913]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6313726, 0.007843138, 0.007843138, 1)
+theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 16
+text = "3"
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Missions/Green/Reward" unique_id=832447108]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture = ExtResource("12_sle6a")
+expand_mode = 1
+
+[node name="BlueBalance" type="Label" parent="Missions/Green/Reward" unique_id=1980723830]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.34901962, 0.30588236, 0.654902, 1)
+theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 16
+text = "3"
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Missions/Green/Reward" unique_id=985449082]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture = ExtResource("13_bjeqd")
+expand_mode = 1
+
+[node name="GreenBalance" type="Label" parent="Missions/Green/Reward" unique_id=248678432]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1882353, 0.654902, 0.40784314, 1)
+theme_override_fonts/font = ExtResource("10_1xu1i")
+theme_override_font_sizes/font_size = 16
+text = "6"
+vertical_alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Missions/Green/Reward" unique_id=140724080]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+texture = ExtResource("14_kplea")
+expand_mode = 1
 
 [node name="ButtonShop" type="TextureButton" parent="." unique_id=1361116911]
 layout_mode = 1
@@ -692,6 +819,16 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 texture = ExtResource("14_kplea")
 expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=609146402]
+modulate = Color(1, 1, 1, 0.4745098)
+layout_mode = 0
+offset_left = 793.0
+offset_top = 623.0
+offset_right = 1174.0
+offset_bottom = 646.0
+theme_override_fonts/font = ExtResource("15_sle6a")
+text = "[Complete 6 missions total to earn your freedom]"
 
 [connection signal="button_up" from="Missions/Red/ButtonRed" to="." method="_on_button_red_button_up"]
 [connection signal="button_up" from="Missions/Blue/ButtonBlue" to="." method="_on_button_blue_button_up"]

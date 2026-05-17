@@ -37,24 +37,50 @@ func get_waves_text(value: int) -> String:
 
 
 func fill_missions():
-
-	# Red
+	
+	var red_description := ""
+	
+	match Global.level[0]:
+		1:
+			red_description = "We are testing our new ships. On you."
+		2:
+			red_description = "Impressive. We improved them further."
+		3:
+			red_description = "Our last test. Prepare as good as you can."
+			
 	$Missions/Red/Mission.text = "Mission: %d/3" % Global.level[0]
 	$Missions/Red/Difficulty.text = "Difficulty: %s" % get_difficulty_text(Global.level[0])
 	$Missions/Red/Waves.text = "Waves: %s" % get_waves_text(Global.level[0])
-	$Missions/Red/Reward.text = "Reward"
-
-	# Green
+	$Missions/Red/Description.text = red_description
+	
+	var green_description := ""
+	match Global.level[1]:
+		1:
+			green_description = "Face our new laser technologies and be rewarded*\n*only in case you'll survive."
+		2:
+			green_description = "We have been studying our failures. We have a new strategy (more ships)."
+		3:
+			green_description = "Wonderful. Prepare for the final test."
+			
 	$Missions/Green/Mission.text = "Mission: %d/3" % Global.level[1]
 	$Missions/Green/Difficulty.text = "Difficulty: %s" % get_difficulty_text(Global.level[1])
 	$Missions/Green/Waves.text = "Waves: %s" % get_waves_text(Global.level[1])
-	$Missions/Green/Reward.text = "Reward"
-
-	# Blue
+	$Missions/Green/Description.text = green_description
+	
+	
+	
+	var blue_description := ""
+	match Global.level[2]:
+		1:
+			blue_description = "We require your assistance in being our shooting target. Fighting back is allowed."
+		2:
+			blue_description = "We once again require your assistance. All the weak spots have been improved."
+		3:
+			blue_description = "We require your assistance for the final time. Come prepared."
 	$Missions/Blue/Mission.text = "Mission: %d/3" % Global.level[2]
 	$Missions/Blue/Difficulty.text = "Difficulty: %s" % get_difficulty_text(Global.level[2])
 	$Missions/Blue/Waves.text = "Waves: %s" % get_waves_text(Global.level[2])
-	$Missions/Blue/Reward.text = "Reward"
+	$Missions/Blue/Description.text = blue_description
 	
 
 func _on_button_red_button_up() -> void:

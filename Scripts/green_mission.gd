@@ -122,5 +122,11 @@ func get_spawn_position() -> Vector2:
 func level_complete() -> void:
 	print("Level complete!")
 	Global.level[2] += 1
-	# TODO: Transition to the next level / victory screen
-	get_tree().change_scene_to_file("res://Scenes/mission_screen.tscn")
+	Global.balance[0] += 3
+	Global.balance[1] += 6
+	Global.balance[2] += 3
+	Global.levels_complete += 1
+	if Global.levels_complete >= 6:
+		get_tree().change_scene_to_file("res://Scenes/end_game_screen.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/mission_screen.tscn")

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dvndeck2c8o81"]
+
+[ext_resource type="Texture2D" uid="uid://b44xclnsq7wm3" path="res://Sprites/Unsorted/BG/finish.png" id="1_64ufq"]
+[ext_resource type="FontFile" uid="uid://bbch1t6bh6h6c" path="res://Font/Laconic_Light.otf" id="2_4xkc4"]
+
+[node name="Node2D" type="Node2D" unique_id=1172726385]
+
+[node name="Finish" type="Sprite2D" parent="." unique_id=1616911541]
+position = Vector2(576.44434, 326.75)
+scale = Vector2(0.8947731, 0.89477307)
+texture = ExtResource("1_64ufq")
+
+[node name="Label" type="Label" parent="." unique_id=158789626]
+offset_left = -5.0
+offset_top = -214.0
+offset_right = 1144.0
+offset_bottom = 438.0
+theme_override_colors/font_color = Color(0.9137255, 0.5176471, 1, 0.654902)
+theme_override_fonts/font = ExtResource("2_4xkc4")
+theme_override_font_sizes/font_size = 100
+text = "Freedom!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=914973702]
+offset_left = -26.0
+offset_top = 229.0
+offset_right = 1123.0
+offset_bottom = 881.0
+theme_override_colors/font_color = Color(0.9137255, 0.9019608, 1, 0.654902)
+theme_override_fonts/font = ExtResource("2_4xkc4")
+theme_override_font_sizes/font_size = 100
+text = "The End"
+horizontal_alignment = 1
+vertical_alignment = 1
