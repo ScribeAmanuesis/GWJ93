@@ -26,8 +26,6 @@ var blue_layers: Array[AudioStream] = [
 	preload("res://Sfx/Music/Blue/GWJ93 - Blue C.ogg")
 ]
 
-@export var master_volume := -18.0
-
 @onready var layer1: AudioStreamPlayer = $Layer1
 @onready var layer2: AudioStreamPlayer = $Layer2
 @onready var layer3: AudioStreamPlayer = $Layer3
@@ -120,9 +118,9 @@ func update_mix(force := false, delta := 0.0):
 	l2 /= total2
 	l3 /= total2
 
-	var target1 = linear_to_db(max(l1, 0.001)) + master_volume
-	var target2 = linear_to_db(max(l2, 0.001)) + master_volume
-	var target3 = linear_to_db(max(l3, 0.001)) + master_volume
+	var target1 = linear_to_db(max(l1, 0.001))
+	var target2 = linear_to_db(max(l2, 0.001))
+	var target3 = linear_to_db(max(l3, 0.001))
 
 	if force:
 		layer1.volume_db = target1

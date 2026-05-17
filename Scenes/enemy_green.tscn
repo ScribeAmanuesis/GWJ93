@@ -34,6 +34,7 @@ shape = SubResource("RectangleShape2D_ptppe")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=967043126]
 volume_db = -20.0
+bus = &"Effects"
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=945125117]
 
