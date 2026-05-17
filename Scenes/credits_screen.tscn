@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://de8cge2wkpl46"]
+
+[ext_resource type="Script" uid="uid://b1b5g8tmh87ew" path="res://Scripts/credits_screen.gd" id="1_ekvdo"]
+
+[node name="CreditsScreen" type="Node2D" unique_id=773612742 node_paths=PackedStringArray("back_button")]
+script = ExtResource("1_ekvdo")
+back_button = NodePath("GridContainer/BackButton")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1942972682]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=740169495]
+offset_left = 408.0
+offset_top = 192.0
+offset_right = 736.0
+offset_bottom = 400.0
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer" unique_id=1486653433]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "uGustaHd"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="GridContainer" unique_id=907909918]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "- Programmer"
+
+[node name="Label9" type="Label" parent="GridContainer" unique_id=1938210809]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Scribe"
+horizontal_alignment = 2
+
+[node name="Label10" type="Label" parent="GridContainer" unique_id=296984736]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "- Programmer"
+
+[node name="Label3" type="Label" parent="GridContainer" unique_id=194878132]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Fulgur"
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="GridContainer" unique_id=677337362]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "- Artist"
+
+[node name="Label5" type="Label" parent="GridContainer" unique_id=1474012261]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Luveid"
+horizontal_alignment = 2
+
+[node name="Label6" type="Label" parent="GridContainer" unique_id=389155017]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "- Audio SFX"
+
+[node name="Label7" type="Label" parent="GridContainer" unique_id=1320482282]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "polymonic"
+horizontal_alignment = 2
+
+[node name="Label8" type="Label" parent="GridContainer" unique_id=204376442]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "- Music"
+
+[node name="BackButton" type="Button" parent="GridContainer" unique_id=1781334273]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="GridContainer/BackButton" to="." method="_on_back_button_pressed"]
