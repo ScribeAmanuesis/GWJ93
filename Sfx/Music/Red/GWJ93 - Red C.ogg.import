@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b1s8m6l8378x7"
+path="res://.godot/imported/GWJ93 - Red C.ogg-aedd0a4ff0596658dfcf6861d15571ef.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sfx/Music/Red/GWJ93 - Red C.ogg"
+dest_files=["res://.godot/imported/GWJ93 - Red C.ogg-aedd0a4ff0596658dfcf6861d15571ef.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

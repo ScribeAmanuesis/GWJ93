@@ -6,20 +6,20 @@ var intensity := 0.0
 var target_intensity := 0.0
 
 var red_layers: Array[AudioStream] = [
-	preload("res://Sfx/Music/Red/GWJ93 - Sketches - Red Extended - A.mp3"),
-	preload("res://Sfx/Music/Red/GWJ93 - Sketches - Red Extended - B.mp3"),
-	preload("res://Sfx/Music/Red/GWJ93 - Sketches - Red Extended - C.mp3")
+	preload("res://Sfx/Music/Red/GWJ93 - Red A.ogg"),
+	preload("res://Sfx/Music/Red/GWJ93 - Red B.ogg"),
+	preload("res://Sfx/Music/Red/GWJ93 - Red C.ogg")
 ]
 var green_layers: Array[AudioStream] = [
-	preload("res://Sfx/Music/Green/GWJ93 - Sketches - Green Extended - A.mp3"),
-	preload("res://Sfx/Music/Green/GWJ93 - Sketches - Green Extended - B.mp3"),
-	preload("res://Sfx/Music/Green/GWJ93 - Sketches - Green Extended - C.mp3")
+	preload("res://Sfx/Music/Green/GWJ93 - Green A.ogg"),
+	preload("res://Sfx/Music/Green/GWJ93 - Green B.ogg"),
+	preload("res://Sfx/Music/Green/GWJ93 - Green C.ogg")
 ]
 
 var blue_layers: Array[AudioStream] = [
-	preload("res://Sfx/Music/Blue/GWJ93 - Sketches - Blue Extended - A.mp3"),
-	preload("res://Sfx/Music/Blue/GWJ93 - Sketches - Blue Extended - B.mp3"),
-	preload("res://Sfx/Music/Blue/GWJ93 - Sketches - Blue Extended - C.mp3")
+	preload("res://Sfx/Music/Blue/GWJ93 - Blue A.ogg"),
+	preload("res://Sfx/Music/Blue/GWJ93 - Blue B.ogg"),
+	preload("res://Sfx/Music/Blue/GWJ93 - Blue C.ogg")
 ]
 
 @export var master_volume := -18.0
