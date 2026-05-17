@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://bsbqpic6gpwwe"]
+
+[ext_resource type="Script" uid="uid://khkp7akuc6j0" path="res://Scripts/options_screen.gd" id="1_7d126"]
+[ext_resource type="AudioStream" uid="uid://tqo3fmexgf0l" path="res://Sfx/explosion 1.mp3" id="2_3u0t0"]
+
+[node name="OptionsScreen" type="Node2D" unique_id=933644930 node_paths=PackedStringArray("main_volume", "music_volume", "effects_volume", "effects_player", "back_button")]
+script = ExtResource("1_7d126")
+main_volume = NodePath("GridContainer/MainVolume")
+music_volume = NodePath("GridContainer/MusicVolume")
+effects_volume = NodePath("GridContainer/EffectsVolume")
+effects_player = NodePath("EffectsPlayer")
+back_button = NodePath("GridContainer/BackButton")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1796146494]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="EffectsPlayer" type="AudioStreamPlayer2D" parent="." unique_id=62085368]
+stream = ExtResource("2_3u0t0")
+bus = &"Effects"
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1262609953]
+offset_left = 62.0
+offset_top = 207.0
+offset_right = 1111.0
+offset_bottom = 363.0
+columns = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="GridContainer" unique_id=704500069]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Master Volume"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MainVolume" type="HSlider" parent="GridContainer" unique_id=308400236]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -56.0
+max_value = 0.0
+tick_count = 10
+
+[node name="MusicVolumeLabel" type="Label" parent="GridContainer" unique_id=2120584523]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Music Volume"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MusicVolume" type="HSlider" parent="GridContainer" unique_id=1208500416]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -56.0
+max_value = 0.0
+tick_count = 10
+
+[node name="EffectsVolumeLabel" type="Label" parent="GridContainer" unique_id=1735094547]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Effects Volume"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="EffectsVolume" type="HSlider" parent="GridContainer" unique_id=1589510654]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -56.0
+max_value = 0.0
+tick_count = 10
+
+[node name="BackButton" type="Button" parent="GridContainer" unique_id=1959025028]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[connection signal="value_changed" from="GridContainer/MainVolume" to="." method="_on_main_volume_value_changed"]
+[connection signal="value_changed" from="GridContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="drag_ended" from="GridContainer/EffectsVolume" to="." method="_on_effects_volume_drag_ended"]
+[connection signal="value_changed" from="GridContainer/EffectsVolume" to="." method="_on_effects_volume_value_changed"]
+[connection signal="pressed" from="GridContainer/BackButton" to="." method="_on_back_button_pressed"]
