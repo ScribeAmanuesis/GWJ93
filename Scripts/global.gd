@@ -2,7 +2,7 @@ extends Node
 
 # R, B, G
 var level : Array[int] = [1, 1, 1]
-var balance: Array[int] = [0, 0, 0]
+var balance: Array[int] = [10, 10, 10]
 
 # upgrades
 var damage := 1.0
@@ -17,4 +17,4 @@ var rotation_speed := 4.0
 var player_max_health := 10
 var player_health := 10
 
-var levels_complete :int = 6
+var levels_complete :int = 0
