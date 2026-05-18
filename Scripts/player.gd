@@ -160,6 +160,7 @@ func damage(amount: float):
 	health_changed.emit(health, max_health)
 	if health <= 0:
 		die()
+		Global.player_health = 3
 		return
 	
 	is_invulnerable = true
